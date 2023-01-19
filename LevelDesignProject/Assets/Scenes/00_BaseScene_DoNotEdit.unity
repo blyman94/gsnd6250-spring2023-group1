@@ -1803,6 +1803,7 @@ GameObject:
   - component: {fileID: 1026416604}
   - component: {fileID: 1026416606}
   - component: {fileID: 1026416605}
+  - component: {fileID: 1026416607}
   m_Layer: 0
   m_Name: PlayerFirstPersonCam
   m_TagString: Untagged
@@ -1906,6 +1907,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   transformToFollow: {fileID: 11400000, guid: efa82db8f847a6048a886f920b4c8e88, type: 2}
+--- !u!114 &1026416607
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1026416601}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a89b3e0a3bb7da148b0a8f762972f8fd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  storageVariable: {fileID: 11400000, guid: deab49a4695b47c499bf1664a5cc5458, type: 2}
 --- !u!1 &1074771736
 GameObject:
   m_ObjectHideFlags: 3
@@ -2462,6 +2476,7 @@ GameObject:
   - component: {fileID: 1978677058}
   - component: {fileID: 1978677060}
   - component: {fileID: 1978677061}
+  - component: {fileID: 1978677062}
   m_Layer: 0
   m_Name: PlayerThirdPersonCam
   m_TagString: Untagged
@@ -2634,6 +2649,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   transformToLookAt: {fileID: 11400000, guid: d1dd52ecb426ae745be2e9a376efc77f, type: 2}
+--- !u!114 &1978677062
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1978677054}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a89b3e0a3bb7da148b0a8f762972f8fd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  storageVariable: {fileID: 11400000, guid: a200984807b1a3d4eabbaf7912032e35, type: 2}
 --- !u!1 &1978691767
 GameObject:
   m_ObjectHideFlags: 0
@@ -2870,20 +2898,5 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
-    - target: {fileID: 160638426291060636, guid: 06de10e3bc45731488956b94547287bf,
-        type: 3}
-      propertyPath: _playerFirstPersonCamera
-      value: 
-      objectReference: {fileID: 1026416602}
-    - target: {fileID: 160638426291060636, guid: 06de10e3bc45731488956b94547287bf,
-        type: 3}
-      propertyPath: _playerThirdPersonCamera
-      value: 
-      objectReference: {fileID: 1978677059}
-    - target: {fileID: 160638426291060643, guid: 06de10e3bc45731488956b94547287bf,
-        type: 3}
-      propertyPath: cameraTransform
-      value: 
-      objectReference: {fileID: 963194228}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 06de10e3bc45731488956b94547287bf, type: 3}

@@ -12,7 +12,7 @@ public class PlayerController : MonoBehaviour
     [Tooltip("State machine driving the player's state context logic.")]
     [SerializeField] private PlayerStateMachine _playerStateMachine;
 
-    [SerializeField] private RotateBasedOnCMFreeLookPosition _rotator;
+    [SerializeField] private RotateBasedOnMainCameraRotation _rotator;
 
     [SerializeField] private PlayerPOVSelector _povSelector;
 

@@ -7,14 +7,27 @@ using UnityEngine;
 public class PlayerPOVSelector : MonoBehaviour
 {
     [Header("First Person View Components")]
-    [SerializeField] private CinemachineVirtualCamera _playerFirstPersonCamera;
+    [SerializeField] private TransformReferenceVariable _playerFirstPersonCameraTransform;
     [SerializeField] private SyncYRotationToQuaternionVariable _playerRotationSync;
 
     [Header("Third Person View Components")]
-    [SerializeField] private CinemachineFreeLook _playerThirdPersonCamera;
-    [SerializeField] private RotateBasedOnCMFreeLookPosition _playerRotateBased;
+    [SerializeField] private TransformReferenceVariable _playerThirdPersonCameraTransform;
+    [SerializeField] private RotateBasedOnMainCameraRotation _playerRotateBased;
 
     public bool IsInFirstPersonView { get; set; } = true;
+
+    private CinemachineVirtualCamera _playerFirstPersonCamera;
+    private CinemachineFreeLook _playerThirdPersonCamera;
+
+    #region MonoBehaviour Methods
+    private void Start()
+    {
+        _playerFirstPersonCamera = 
+            _playerFirstPersonCameraTransform.Value.GetComponent<CinemachineVirtualCamera>();
+        _playerThirdPersonCamera = 
+            _playerThirdPersonCameraTransform.Value.GetComponent<CinemachineFreeLook>();
+    }
+    #endregion
 
     /// <summary>
     /// Toggles the player's perspective between first and third person.

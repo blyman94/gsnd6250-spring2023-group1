@@ -5,7 +5,7 @@ using UnityEngine;
 /// Rotates the character such that it is facing away from an assigned
 /// Cinemachine free-look camera.
 /// </summary>
-public class RotateBasedOnCMFreeLookPosition : MonoBehaviour
+public class RotateBasedOnMainCameraRotation : MonoBehaviour
 {
     /// <summary>
     /// How long it takes for the GameObject to rotate from its current rotation
@@ -16,11 +16,9 @@ public class RotateBasedOnCMFreeLookPosition : MonoBehaviour
     [SerializeField] private float rotationSmoothTime = 0.12f;
 
     /// <summary>
-    /// Camera following this GameObject.
+    /// Transform of the main camera.
     /// </summary>
-    [Header("General")]
-    [Tooltip("Camera following this GameObject.")]
-    [SerializeField] private Transform cameraTransform;
+    private Transform mainCameraTransform;
 
     /// <summary>
     /// Rotation velocity to be updated each time SmoothDampAngle is called.
@@ -40,6 +38,10 @@ public class RotateBasedOnCMFreeLookPosition : MonoBehaviour
     #endregion
 
     #region MonoBehaviour Methods
+    private void Start()
+    {
+        mainCameraTransform = Camera.main.transform;
+    }
     private void Update()
     {
         if (MoveInput == Vector2.zero)
@@ -49,7 +51,7 @@ public class RotateBasedOnCMFreeLookPosition : MonoBehaviour
         Vector3 inputDirection =
             new Vector3(MoveInput.x, 0.0f, MoveInput.y).normalized;
         targetRotation = Mathf.Atan2(inputDirection.x, inputDirection.z) *
-               Mathf.Rad2Deg + cameraTransform.eulerAngles.y;
+               Mathf.Rad2Deg + mainCameraTransform.eulerAngles.y;
 
         float rotation = Mathf.SmoothDampAngle(transform.eulerAngles.y,
                 targetRotation, ref currentYVelocity, rotationSmoothTime);
