@@ -12,6 +12,10 @@ public class PlayerController : MonoBehaviour
     [Tooltip("State machine driving the player's state context logic.")]
     [SerializeField] private PlayerStateMachine _playerStateMachine;
 
+    [SerializeField] private RotateBasedOnCMFreeLookPosition _rotator;
+
+    [SerializeField] private PlayerPOVSelector _povSelector;
+
     /// <summary>
     /// Player input component.
     /// </summary>
@@ -19,6 +23,13 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private PlayerInput _playerInput;
 
     #region Input Action Responses
+    public void OnSwitchPOVInput(InputAction.CallbackContext context)
+    {
+        if (context.started)
+        {
+            _povSelector.SwitchView();
+        }
+    }
     public void OnCrouchInput(InputAction.CallbackContext context)
     {
         if (context.started)
@@ -38,10 +49,12 @@ public class PlayerController : MonoBehaviour
         if (context.performed)
         {
             _playerStateMachine.MoveInput = context.ReadValue<Vector2>();
+            _rotator.MoveInput = context.ReadValue<Vector2>();
         }
         else
         {
             _playerStateMachine.MoveInput = Vector2.zero;
+            _rotator.MoveInput = Vector2.zero;
         }
     }
     public void OnSprintInput(InputAction.CallbackContext context)
