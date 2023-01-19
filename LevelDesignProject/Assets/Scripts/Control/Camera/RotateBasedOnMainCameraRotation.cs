@@ -35,6 +35,11 @@ public class RotateBasedOnMainCameraRotation : MonoBehaviour
     /// Vector2 representing the movement input from a control source.
     /// </summary>
     public Vector2 MoveInput { get; set; }
+
+    /// <summary>
+    /// Vector3 representing the target direction of the rotated object.
+    /// </summary>
+    public Vector3 TargetDirection { get; set; }
     #endregion
 
     #region MonoBehaviour Methods
@@ -51,11 +56,14 @@ public class RotateBasedOnMainCameraRotation : MonoBehaviour
         Vector3 inputDirection =
             new Vector3(MoveInput.x, 0.0f, MoveInput.y).normalized;
         targetRotation = Mathf.Atan2(inputDirection.x, inputDirection.z) *
-               Mathf.Rad2Deg + mainCameraTransform.eulerAngles.y;
+            Mathf.Rad2Deg + mainCameraTransform.eulerAngles.y;
 
         float rotation = Mathf.SmoothDampAngle(transform.eulerAngles.y,
-                targetRotation, ref currentYVelocity, rotationSmoothTime);
+            targetRotation, ref currentYVelocity, rotationSmoothTime);
         transform.rotation = Quaternion.Euler(0.0f, rotation, 0.0f);
+
+        TargetDirection = Quaternion.Euler(0.0f, targetRotation, 0.0f) * 
+            Vector3.forward;
     }
     #endregion
 }

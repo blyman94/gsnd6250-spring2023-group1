@@ -48,7 +48,7 @@ public class PlayerIdleState : PlayerBaseState
 
     public override void EnterState()
     {
-
+        Context.NewSpeed = 0;
     }
 
     public override void ExitState()

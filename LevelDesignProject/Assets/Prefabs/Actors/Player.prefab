@@ -484,6 +484,7 @@ MonoBehaviour:
   GroundSensor: {fileID: 160638427095488147}
   CurrentStateStringVariable: {fileID: 0}
   HeadSensor: {fileID: 160638425557466993}
+  _rotateBasedOnMainCameraRotation: {fileID: 160638426291060643}
   CrouchCenter: {x: 0.05, y: 0.66, z: 0.05}
   CrouchHeight: 1.32
   CrouchRadius: 0.44
@@ -1002,8 +1003,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rotationSmoothTime: 0.12
-  freeLookCameraTransform: {fileID: 11400000, guid: a200984807b1a3d4eabbaf7912032e35,
-    type: 2}
 --- !u!1 &160638426122471513
 GameObject:
   m_ObjectHideFlags: 0
@@ -3129,6 +3128,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 97a6d0b1a42941449ad8c53ba41ba080, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _playerAnimator: {fileID: 160638427465630785}
   _playerFirstPersonCameraTransform: {fileID: 11400000, guid: deab49a4695b47c499bf1664a5cc5458,
     type: 2}
   _playerRotationSync: {fileID: 160638426109575842}
