@@ -40,6 +40,13 @@ public class PlayerStateMachine : MonoBehaviour
     public Sensor3D HeadSensor;
 
     /// <summary>
+    /// Component used in third person view to rotate the player transform.
+    /// </summary>
+    [Tooltip("Component used in third person view to rotate the player " + 
+        "transform.")]
+    [SerializeField] private RotateBasedOnMainCameraRotation _rotateBasedOnMainCameraRotation;
+
+    /// <summary>
     /// Center of the characterController when crouched.
     /// </summary>
     [Header("Crouching")]
@@ -140,7 +147,6 @@ public class PlayerStateMachine : MonoBehaviour
     /// </summary>
     private PlayerStateFactory _states;
 
-    #region Properties
     /// <summary>
     /// Couroutine currently active on this MonoBehaviour
     /// </summary>
@@ -217,7 +223,6 @@ public class PlayerStateMachine : MonoBehaviour
         }
     }
 
-
     /// <summary>
     /// Determines if the character is currently sprinting.
     /// </summary>
@@ -281,12 +286,17 @@ public class PlayerStateMachine : MonoBehaviour
     /// <summary>
     /// Parameter ID for the VelocityX string.
     /// </summary>
-    public int VelocityXID { get; private set; }
+    private int _speedID;
+
+    /// <summary>
+    /// Parameter ID for the VelocityX string.
+    /// </summary>
+    private int _velocityXID;
 
     /// <summary>
     /// Parameter ID for the VelocityZ string.
     /// </summary>
-    public int VelocityZID { get; private set; }
+    private int _velocityZID;
 
     /// <summary>
     /// Walk speed of the character.
@@ -298,7 +308,6 @@ public class PlayerStateMachine : MonoBehaviour
             return _walkSpeed * CurrentSpeedMultiplier;
         }
     }
-    #endregion
 
     #region MonoBehaviour Methods
     private void Awake()
@@ -350,10 +359,23 @@ public class PlayerStateMachine : MonoBehaviour
     /// </summary>
     private void ApplyMovement()
     {
-        CharacterController.Move(Movement * Time.deltaTime);
-        Animator.SetFloat(VelocityXID,
+        if (_rotateBasedOnMainCameraRotation.enabled)
+        {
+            Vector3 horizontalMovement = _rotateBasedOnMainCameraRotation.TargetDirection.normalized *
+                (NewSpeed * Time.deltaTime);
+            Vector3 verticalMovement = new Vector3(0.0f, Movement.y, 0.0f) *
+                Time.deltaTime;
+            CharacterController.Move(horizontalMovement + verticalMovement);
+        }
+        else
+        {
+            CharacterController.Move(Movement * Time.deltaTime);
+        }
+        Animator.SetFloat(_speedID,
+            CharacterController.velocity.magnitude, 1.0f, Time.deltaTime * 10.0f);
+        Animator.SetFloat(_velocityXID,
             GetScaledMoveInput().x, 1.0f, Time.deltaTime * 10.0f);
-        Animator.SetFloat(VelocityZID,
+        Animator.SetFloat(_velocityZID,
             GetScaledMoveInput().y, 1.0f, Time.deltaTime * 10.0f);
     }
 
@@ -366,8 +388,9 @@ public class PlayerStateMachine : MonoBehaviour
         IsCrouchedID = Animator.StringToHash("IsCrouched");
         IsGroundedID = Animator.StringToHash("IsGrounded");
         JumpTriggerID = Animator.StringToHash("JumpTrigger");
-        VelocityXID = Animator.StringToHash("VelocityX");
-        VelocityZID = Animator.StringToHash("VelocityZ");
+        _speedID = Animator.StringToHash("Speed");
+        _velocityXID = Animator.StringToHash("VelocityX");
+        _velocityZID = Animator.StringToHash("VelocityZ");
     }
 
     /// <summary>
@@ -392,7 +415,7 @@ public class PlayerStateMachine : MonoBehaviour
         {
             return;
         }
-        
+
         SubstateList.Add(state);
         if (state.CurrentSubState == null)
         {

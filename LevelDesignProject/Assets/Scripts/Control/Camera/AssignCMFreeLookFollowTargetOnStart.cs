@@ -2,34 +2,34 @@ using Cinemachine;
 using UnityEngine;
 
 /// <summary>
-/// Assigns a transform for the attached Cinemachine Virtual Camera to follow
+/// Assigns a transform for the attached Cinemachine Free Look Camera to follow
 /// when the game starts. Make sure the transform to follow is stored in another
 /// script's "Awake" call to prevent race condition issues.
 /// </summary>
-public class AssignCMVCamFollowTargetOnStart : MonoBehaviour
+public class AssignCMFreeLookFollowTargetOnStart : MonoBehaviour
 {
     /// <summary>
-    /// Contains the transform reference the attached virtual camera should 
+    /// Contains the transform reference the attached free look camera should 
     /// follow.
     /// </summary>
-    [Tooltip("Contains the transform reference the attached virtual " + 
+    [Tooltip("Contains the transform reference the attached free look " + 
         "camera should follow.")]
     [SerializeField] private TransformReferenceVariable transformToFollow;
 
     /// <summary>
-    /// Cinemachine virtual camera component to which the follow target will be
+    /// Cinemachine free look camera to which the follow target will be 
     /// assigned.
     /// </summary>
-    private CinemachineVirtualCamera virtualCamera;
+    private CinemachineFreeLook freeLookCamera;
 
     #region MonoBehaviour Methods
     private void Awake()
     {
-        virtualCamera = GetComponent<CinemachineVirtualCamera>();
+        freeLookCamera = GetComponent<CinemachineFreeLook>();
     }
     private void Start()
     {
-        virtualCamera.Follow = transformToFollow.Value;
+        freeLookCamera.Follow = transformToFollow.Value;
     }
     #endregion
 }
