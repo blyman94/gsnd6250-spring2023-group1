@@ -1,5 +1,6 @@
 using Cinemachine;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 /// <summary>
 /// Allows the player to switch between first and third person views.
@@ -27,7 +28,7 @@ public class PlayerPOVSelector : MonoBehaviour
     [SerializeField] private SyncYRotationToQuaternionVariable _playerRotationSync;
 
     /// <summary>
-    /// TransformReference for the first person camera.
+    /// TransformReference for the third person camera.
     /// </summary>
     [Header("Third Person View Components")]
     [Tooltip("TransformReference for the third person camera.")]
@@ -40,9 +41,13 @@ public class PlayerPOVSelector : MonoBehaviour
     [SerializeField] private RotateBasedOnMainCameraRotation _playerRotateBased;
 
     /// <summary>
-    /// Is the player currently in first person view?
+    /// TransformReference for the free fly camera.
     /// </summary>
-    public bool IsInFirstPersonView { get; set; } = true;
+    [Header("Free Fly View Components")]
+    [Tooltip("TransformReference for the free fly camera.")]
+    [SerializeField] private TransformReferenceVariable _playerFreeFlyCameraTransform;
+
+    [SerializeField] private PlayerInput _playerInput;
 
     /// <summary>
     /// Virtual camera component for the first person camera.
@@ -54,10 +59,19 @@ public class PlayerPOVSelector : MonoBehaviour
     /// </summary>
     private CinemachineFreeLook _playerThirdPersonCamera;
 
+    private CinemachineVirtualCamera _playerFreeFlyCamera;
+
+    private FreeFlyCamera _freeFlyCamera;
+
     /// <summary>
     /// Parameter ID for the IsFirstPerson string.
     /// </summary>
     private int _isFirstPersonID;
+
+    /// <summary>
+    /// Which view is the player currently in?
+    /// </summary>
+    public int viewIndex { get; set; } = 0;
 
     #region MonoBehaviour Methods
     private void Awake()
@@ -71,6 +85,10 @@ public class PlayerPOVSelector : MonoBehaviour
             _playerFirstPersonCameraTransform.Value.GetComponent<CinemachineVirtualCamera>();
         _playerThirdPersonCamera =
             _playerThirdPersonCameraTransform.Value.GetComponent<CinemachineFreeLook>();
+        _playerFreeFlyCamera =
+            _playerFreeFlyCameraTransform.Value.GetComponent<CinemachineVirtualCamera>();
+        _freeFlyCamera =
+            _playerFreeFlyCameraTransform.Value.GetComponent<FreeFlyCamera>();
     }
     #endregion
 
@@ -79,13 +97,24 @@ public class PlayerPOVSelector : MonoBehaviour
     /// </summary>
     public void SwitchView()
     {
-        if (IsInFirstPersonView)
+        Debug.Log("Called");
+        viewIndex++;
+        if (viewIndex > 2)
         {
-            SwitchToThirdPersonView();
+            viewIndex = 0;
         }
-        else
+
+        switch (viewIndex)
         {
-            SwitchToFirstPersonView();
+            case 0:
+                SwitchToFirstPersonView();
+                break;
+            case 1:
+                SwitchToThirdPersonView();
+                break;
+            case 2:
+                SwitchToFreeFlyView();
+                break;
         }
     }
 
@@ -94,12 +123,14 @@ public class PlayerPOVSelector : MonoBehaviour
     /// </summary>
     public void SwitchToFirstPersonView()
     {
+        _freeFlyCamera.IsActive = false;
+        _playerInput.SwitchCurrentActionMap("Gameplay");
         _playerAnimator.SetBool(_isFirstPersonID, true);
         _playerFirstPersonCamera.Priority = 1;
         _playerThirdPersonCamera.Priority = 0;
+        _playerFreeFlyCamera.Priority = 0;
         _playerRotationSync.enabled = true;
         _playerRotateBased.enabled = false;
-        IsInFirstPersonView = true;
     }
 
     /// <summary>
@@ -107,11 +138,26 @@ public class PlayerPOVSelector : MonoBehaviour
     /// </summary>
     public void SwitchToThirdPersonView()
     {
+        _freeFlyCamera.IsActive = false;
+        _playerInput.SwitchCurrentActionMap("Gameplay");
         _playerAnimator.SetBool(_isFirstPersonID, false);
         _playerFirstPersonCamera.Priority = 0;
         _playerThirdPersonCamera.Priority = 1;
+        _playerFreeFlyCamera.Priority = 0;
         _playerRotationSync.enabled = false;
         _playerRotateBased.enabled = true;
-        IsInFirstPersonView = false;
+    }
+
+    public void SwitchToFreeFlyView()
+    {
+        _freeFlyCamera.IsActive = true;
+        _playerInput.SwitchCurrentActionMap("FreeFlyCamera");
+        _playerAnimator.SetBool(_isFirstPersonID, false);
+        _playerFirstPersonCamera.Priority = 0;
+        _playerThirdPersonCamera.Priority = 0;
+        _playerFreeFlyCamera.Priority = 1;
+        _playerRotationSync.enabled = false;
+        _playerRotateBased.enabled = false;
+        Debug.Log(_playerInput.currentActionMap.name);
     }
 }

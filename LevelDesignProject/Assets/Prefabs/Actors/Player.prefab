@@ -1,5 +1,53 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1808666858
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1808666859}
+  - component: {fileID: 1808666860}
+  m_Layer: 0
+  m_Name: PlayerFreeFlyCameraController
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1808666859
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1808666858}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 160638426109575841}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1808666860
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1808666858}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1a3778fe31925b2489aa13cc71e2e73a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _freeFlyCameraTransformReference: {fileID: 11400000, guid: 00c0f0846819123418070d8e9b8e6f50,
+    type: 2}
+  _playerInput: {fileID: 160638426420906813}
+  _povSelector: {fileID: 160638426291060636}
 --- !u!1 &160638425531246130
 GameObject:
   m_ObjectHideFlags: 0
@@ -925,6 +973,7 @@ Transform:
   - {fileID: 160638427549541958}
   - {fileID: 1700244519467316660}
   - {fileID: 7543557744752108743}
+  - {fileID: 1808666859}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1371,7 +1420,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 160638426420906802}
         m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
-        m_MethodName: OnToggleWalkRunInput
+        m_MethodName: OnWalkRunInput
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1447,8 +1496,60 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: f5176af5-a24e-4d0f-a1f1-2494c7e5772c
     m_ActionName: Gameplay/SwitchPOV[/Mouse/middleButton]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 646476de-5473-4eaa-aa43-880d3785973d
+    m_ActionName: FreeFlyCamera/Look[/Mouse/delta]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1808666860}
+        m_TargetAssemblyTypeName: FreeFlyCameraController, Assembly-CSharp
+        m_MethodName: OnMoveInput
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: c5281b59-157b-4261-a3c1-294edd91d68f
+    m_ActionName: FreeFlyCamera/Move[/Keyboard/w,/Keyboard/s,/Keyboard/a,/Keyboard/d]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1808666860}
+        m_TargetAssemblyTypeName: FreeFlyCameraController, Assembly-CSharp
+        m_MethodName: OnSwitchPOVInput
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 6ff02b6b-081a-4967-907b-fc8887c9c01d
+    m_ActionName: FreeFlyCamera/SwitchPOV[/Mouse/middleButton]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1808666860}
+        m_TargetAssemblyTypeName: FreeFlyCameraController, Assembly-CSharp
+        m_MethodName: OnRaiseLowerInput
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 687b87bb-19c5-4875-b182-07ce3dc3af42
+    m_ActionName: FreeFlyCamera/RaiseLower[/Keyboard/q,/Keyboard/e]
   m_NeverAutoSwitchControlSchemes: 0
-  m_DefaultControlScheme: Mouse&Keyboard
+  m_DefaultControlScheme: 
   m_DefaultActionMap: Gameplay
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
