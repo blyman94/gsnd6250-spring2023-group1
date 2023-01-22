@@ -31,6 +31,17 @@ public class FreeFlyCameraController : MonoBehaviour
     #endregion 
 
     #region Input Action Responses
+    public void OnBoostInput(InputAction.CallbackContext context)
+    {
+        if (context.started)
+        {
+            _freeFlyCamera.IsBoosted = true;
+        }
+        else if (context.canceled)
+        {
+            _freeFlyCamera.IsBoosted = false;
+        }
+    }
     public void OnSwitchToFirstPersonInput(InputAction.CallbackContext context)
     {
         if (context.started)
@@ -64,18 +75,6 @@ public class FreeFlyCameraController : MonoBehaviour
         else
         {
             _freeFlyCamera.MoveInput = Vector2.zero;
-        }
-    }
-
-    public void OnRaiseLowerInput(InputAction.CallbackContext context)
-    {
-        if (context.performed)
-        {
-            _freeFlyCamera.VerticalInput = context.ReadValue<int>();
-        }
-        else
-        {
-            _freeFlyCamera.VerticalInput = 0;
         }
     }
     #endregion

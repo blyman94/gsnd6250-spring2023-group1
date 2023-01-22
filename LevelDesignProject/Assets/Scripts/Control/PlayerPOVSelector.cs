@@ -47,6 +47,10 @@ public class PlayerPOVSelector : MonoBehaviour
     [Tooltip("TransformReference for the free fly camera.")]
     [SerializeField] private TransformReferenceVariable _playerFreeFlyCameraTransform;
 
+    /// <summary>
+    /// Player input component.
+    /// </summary>
+    [Tooltip("Player input component.")]
     [SerializeField] private PlayerInput _playerInput;
 
     /// <summary>
@@ -59,8 +63,14 @@ public class PlayerPOVSelector : MonoBehaviour
     /// </summary>
     private CinemachineFreeLook _playerThirdPersonCamera;
 
+    /// <summary>
+    /// Virtual camera component for the free fly camera.
+    /// </summary>
     private CinemachineVirtualCamera _playerFreeFlyCamera;
 
+    /// <summary>
+    /// The free fly camera the player can control.
+    /// </summary>
     private FreeFlyCamera _freeFlyCamera;
 
     /// <summary>
@@ -84,6 +94,8 @@ public class PlayerPOVSelector : MonoBehaviour
             _playerFreeFlyCameraTransform.Value.GetComponent<CinemachineVirtualCamera>();
         _freeFlyCamera =
             _playerFreeFlyCameraTransform.Value.GetComponent<FreeFlyCamera>();
+
+        SwitchToFirstPersonView();
     }
     #endregion
 
@@ -118,7 +130,10 @@ public class PlayerPOVSelector : MonoBehaviour
         _playerRotationSync.enabled = false;
         _playerRotateBased.enabled = true;
     }
-
+    
+    /// <summary>
+    /// Switches the player's perspective to free fly view.
+    /// </summary>
     public void SwitchToFreeFlyView()
     {
         _freeFlyCamera.IsActive = true;

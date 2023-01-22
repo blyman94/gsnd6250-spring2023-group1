@@ -466,6 +466,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "SpeedBoost",
+                    "type": "Button",
+                    "id": "ee6d3479-85a8-4bb2-8ed5-1f2b54b0237d",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -697,6 +706,28 @@
                     "processors": "",
                     "groups": "Gamepad",
                     "action": "SwitchToFreeFly",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "2d3d6384-a8d9-4bd6-9897-7ba2bed4b8a9",
+                    "path": "<Keyboard>/leftShift",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Mouse&Keyboard",
+                    "action": "SpeedBoost",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "5041455e-961a-45ec-b75a-fc6f62b36a03",
+                    "path": "<Gamepad>/leftShoulder",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Gamepad",
+                    "action": "SpeedBoost",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

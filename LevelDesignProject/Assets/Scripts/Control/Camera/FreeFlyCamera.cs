@@ -6,9 +6,16 @@ using UnityEngine;
 public class FreeFlyCamera : MonoBehaviour
 {
     /// <summary>
-    /// Speed at which the camera moves;
+    /// Speed at which the camera moves.
     /// </summary>
-    [SerializeField] private float _moveSpeed = 5.0f;
+    [Tooltip("Speed at which the camera moves.")]
+    [SerializeField] private float _baseSpeed = 5.0f;
+
+    /// <summary>
+    /// Speed at which the camera moves when boosted.
+    /// </summary>
+    [Tooltip("Speed at which the camera moves when boosted.")]
+    [SerializeField] private float _boostSpeed = 10.0f;
 
     /// <summary>
     /// Is the player currently controlling this camera?
@@ -26,6 +33,14 @@ public class FreeFlyCamera : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Is this camera currently moving at boost speed?
+    /// </summary>
+    public bool IsBoosted { get; set; } = false;
+
+    /// <summary>
+    /// Transform the camera is parented to when not being controlled.
+    /// </summary>
     public Transform ParentWhenInactive { get; set; }
 
     /// <summary>
@@ -42,8 +57,15 @@ public class FreeFlyCamera : MonoBehaviour
     /// Determines if the character is receiving input from a gamepad.
     /// </summary>
     public bool IsGamepadInput { get; set; }
+
+    /// <summary>
+    /// Movement vector of the camera along the xz plane.
+    /// </summary>
     private Vector3 xzMovement;
-    private Vector3 yMovement;
+
+    /// <summary>
+    /// Is the player currently controlling this camera?
+    /// </summary>
     private bool _isActive;
 
     /// <summary>
@@ -64,9 +86,7 @@ public class FreeFlyCamera : MonoBehaviour
             return;
         }
         HandleXZMovement();
-        HandleYMovement();
-        Vector3 finalMovement = xzMovement + yMovement;
-        _characterController.Move(finalMovement * Time.deltaTime);
+        _characterController.Move(xzMovement * Time.deltaTime);
     }
     #endregion
 
@@ -77,26 +97,25 @@ public class FreeFlyCamera : MonoBehaviour
     /// </summary>
     private void HandleXZMovement()
     {
+        float moveSpeed = IsBoosted ? _boostSpeed : _baseSpeed;
         if (IsGamepadInput)
         {
-            // Gamepad input is analog - character should always be running, 
-            // and the move input itself will control the character's speed.
             xzMovement = ((transform.forward * MoveInput.y) +
-                (transform.right * MoveInput.x)) * _moveSpeed;
+                (transform.right * MoveInput.x)) * moveSpeed;
         }
         else
         {
             xzMovement = ((transform.forward * MoveInput.y) +
                 (transform.right * MoveInput.x)).normalized *
-                _moveSpeed;
+                moveSpeed;
         }
     }
 
-    private void HandleYMovement()
-    {
-        yMovement = (transform.up * VerticalInput).normalized * _moveSpeed;
-    }
-
+    /// <summary>
+    /// Parents the camera to a designated transform when it is not being 
+    /// controlled. Helps to keep the camera in an intuitive location when not
+    /// in use.
+    /// </summary>
     private void HandleParent()
     {
         if (ParentWhenInactive == null)

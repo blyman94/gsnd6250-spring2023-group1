@@ -1596,6 +1596,22 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 13e548eb-1d5c-433a-86ac-035ed8ce159e
     m_ActionName: FreeFlyCamera/SwitchToFreeFly[/Keyboard/3,/Keyboard/numpad3]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1808666860}
+        m_TargetAssemblyTypeName: FreeFlyCameraController, Assembly-CSharp
+        m_MethodName: OnBoostInput
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: ee6d3479-85a8-4bb2-8ed5-1f2b54b0237d
+    m_ActionName: FreeFlyCamera/SpeedBoost[/Keyboard/leftShift]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Gameplay
