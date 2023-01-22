@@ -121,7 +121,7 @@ GameObject:
   m_Component:
   - component: {fileID: 160638425557466992}
   - component: {fileID: 160638425557466993}
-  m_Layer: 3
+  m_Layer: 0
   m_Name: HeadSensor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2641,7 +2641,7 @@ GameObject:
   m_Component:
   - component: {fileID: 160638427095488146}
   - component: {fileID: 160638427095488147}
-  m_Layer: 3
+  m_Layer: 0
   m_Name: GroundSensor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2680,7 +2680,7 @@ MonoBehaviour:
   active: 0
   layerToSense:
     serializedVersion: 2
-    m_Bits: 64
+    m_Bits: 384
   radius: 0.3
   boxSize: {x: 0, y: 0, z: 0}
   tagToSense: 
