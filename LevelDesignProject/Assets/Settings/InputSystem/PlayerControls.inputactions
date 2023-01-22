@@ -94,6 +94,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "ToggleControlsMenu",
+                    "type": "Button",
+                    "id": "f0300a1a-266c-4d40-95dd-558b0f972b52",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -415,6 +424,28 @@
                     "action": "SwitchToFreeFly",
                     "isComposite": false,
                     "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "b2d67a9b-2760-4ccf-a35f-8154febf0cc5",
+                    "path": "<Keyboard>/backquote",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "ToggleControlsMenu",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "e092efaa-89b8-47e2-8cfc-b69f2d9d5348",
+                    "path": "<Gamepad>/select",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "ToggleControlsMenu",
+                    "isComposite": false,
+                    "isPartOfComposite": false
                 }
             ]
         },
@@ -471,6 +502,15 @@
                     "name": "SpeedBoost",
                     "type": "Button",
                     "id": "ee6d3479-85a8-4bb2-8ed5-1f2b54b0237d",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "ToggleControlsMenu",
+                    "type": "Button",
+                    "id": "3f20e815-2eda-49ba-a750-198c9203542c",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
@@ -728,6 +768,28 @@
                     "processors": "",
                     "groups": "Gamepad",
                     "action": "SpeedBoost",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "f2c56d0b-75ed-480b-9a8f-0b1982e1f75c",
+                    "path": "<Keyboard>/backquote",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "ToggleControlsMenu",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "6e34de99-a540-4f14-9be5-c60e2e384641",
+                    "path": "<Gamepad>/select",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "ToggleControlsMenu",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

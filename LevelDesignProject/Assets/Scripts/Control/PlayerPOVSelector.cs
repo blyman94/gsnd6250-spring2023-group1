@@ -8,6 +8,12 @@ using UnityEngine.InputSystem;
 public class PlayerPOVSelector : MonoBehaviour
 {
     /// <summary>
+    /// Variable to store the player's current POV.
+    /// </summary>
+    [Tooltip("Variable to store the player's current POV.")]
+    [SerializeField] private PlayerPOVVariable _currentPOV;
+    
+    /// <summary>
     /// The player's animator component.
     /// </summary>
     [Header("Component References")]
@@ -113,6 +119,8 @@ public class PlayerPOVSelector : MonoBehaviour
         _playerFreeFlyCamera.Priority = 0;
         _playerRotationSync.enabled = true;
         _playerRotateBased.enabled = false;
+
+        _currentPOV.Value = PlayerPOV.FirstPerson;
     }
 
     /// <summary>
@@ -129,6 +137,8 @@ public class PlayerPOVSelector : MonoBehaviour
         _playerFreeFlyCamera.Priority = 0;
         _playerRotationSync.enabled = false;
         _playerRotateBased.enabled = true;
+
+        _currentPOV.Value = PlayerPOV.ThirdPerson;
     }
     
     /// <summary>
@@ -144,5 +154,7 @@ public class PlayerPOVSelector : MonoBehaviour
         _playerFreeFlyCamera.Priority = 1;
         _playerRotationSync.enabled = false;
         _playerRotateBased.enabled = false;
+
+        _currentPOV.Value = PlayerPOV.FreeFly;
     }
 }
