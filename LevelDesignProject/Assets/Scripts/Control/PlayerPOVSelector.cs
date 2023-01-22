@@ -92,6 +92,7 @@ public class PlayerPOVSelector : MonoBehaviour
     /// </summary>
     public void SwitchToFirstPersonView()
     {
+        _freeFlyCamera.ParentWhenInactive = _playerFirstPersonCameraTransform.Value;
         _freeFlyCamera.IsActive = false;
         _playerInput.SwitchCurrentActionMap("Gameplay");
         _playerAnimator.SetBool(_isFirstPersonID, true);
@@ -107,6 +108,7 @@ public class PlayerPOVSelector : MonoBehaviour
     /// </summary>
     public void SwitchToThirdPersonView()
     {
+        _freeFlyCamera.ParentWhenInactive = _playerThirdPersonCameraTransform.Value;
         _freeFlyCamera.IsActive = false;
         _playerInput.SwitchCurrentActionMap("Gameplay");
         _playerAnimator.SetBool(_isFirstPersonID, false);

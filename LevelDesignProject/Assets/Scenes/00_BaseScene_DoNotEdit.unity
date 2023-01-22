@@ -1127,7 +1127,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c4c045f4c89b8c4c87a2c5a6ca9b4c4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MoveSpeed: 5
+  _parentWhenInactiveVariable: {fileID: 11400000, guid: a200984807b1a3d4eabbaf7912032e35,
+    type: 2}
+  _moveSpeed: 5
   _characterController: {fileID: 628058610}
 --- !u!114 &628058612
 MonoBehaviour:
