@@ -31,14 +31,27 @@ public class FreeFlyCameraController : MonoBehaviour
     #endregion 
 
     #region Input Action Responses
-    public void OnSwitchPOVInput(InputAction.CallbackContext context)
+    public void OnSwitchToFirstPersonInput(InputAction.CallbackContext context)
     {
         if (context.started)
         {
-            _povSelector.SwitchView();
+            _povSelector.SwitchToFirstPersonView();
         }
     }
-
+    public void OnSwitchToThirdPersonInput(InputAction.CallbackContext context)
+    {
+        if (context.started)
+        {
+            _povSelector.SwitchToThirdPersonView();
+        }
+    }
+    public void OnSwitchToFreeFlyInput(InputAction.CallbackContext context)
+    {
+        if (context.started)
+        {
+            _povSelector.SwitchToFreeFlyView();
+        }
+    }
     public void OnMoveInput(InputAction.CallbackContext context)
     {
         _freeFlyCamera.IsGamepadInput =

@@ -68,11 +68,6 @@ public class PlayerPOVSelector : MonoBehaviour
     /// </summary>
     private int _isFirstPersonID;
 
-    /// <summary>
-    /// Which view is the player currently in?
-    /// </summary>
-    public int viewIndex { get; set; } = 0;
-
     #region MonoBehaviour Methods
     private void Awake()
     {
@@ -91,32 +86,6 @@ public class PlayerPOVSelector : MonoBehaviour
             _playerFreeFlyCameraTransform.Value.GetComponent<FreeFlyCamera>();
     }
     #endregion
-
-    /// <summary>
-    /// Toggles the player's perspective between first and third person.
-    /// </summary>
-    public void SwitchView()
-    {
-        Debug.Log("Called");
-        viewIndex++;
-        if (viewIndex > 2)
-        {
-            viewIndex = 0;
-        }
-
-        switch (viewIndex)
-        {
-            case 0:
-                SwitchToFirstPersonView();
-                break;
-            case 1:
-                SwitchToThirdPersonView();
-                break;
-            case 2:
-                SwitchToFreeFlyView();
-                break;
-        }
-    }
 
     /// <summary>
     /// Switches the player's perspective to first person view.
@@ -158,6 +127,5 @@ public class PlayerPOVSelector : MonoBehaviour
         _playerFreeFlyCamera.Priority = 1;
         _playerRotationSync.enabled = false;
         _playerRotateBased.enabled = false;
-        Debug.Log(_playerInput.currentActionMap.name);
     }
 }

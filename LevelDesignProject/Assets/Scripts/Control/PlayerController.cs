@@ -23,11 +23,25 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private PlayerInput _playerInput;
 
     #region Input Action Responses
-    public void OnSwitchPOVInput(InputAction.CallbackContext context)
+    public void OnSwitchToFirstPersonInput(InputAction.CallbackContext context)
     {
         if (context.started)
         {
-            _povSelector.SwitchView();
+            _povSelector.SwitchToFirstPersonView();
+        }
+    }
+    public void OnSwitchToThirdPersonInput(InputAction.CallbackContext context)
+    {
+        if (context.started)
+        {
+            _povSelector.SwitchToThirdPersonView();
+        }
+    }
+    public void OnSwitchToFreeFlyInput(InputAction.CallbackContext context)
+    {
+        if (context.started)
+        {
+            _povSelector.SwitchToFreeFlyView();
         }
     }
     public void OnCrouchInput(InputAction.CallbackContext context)

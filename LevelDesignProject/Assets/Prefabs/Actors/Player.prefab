@@ -1484,7 +1484,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 160638426420906802}
         m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
-        m_MethodName: OnSwitchPOVInput
+        m_MethodName: OnSwitchToFirstPersonInput
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1497,8 +1497,40 @@ MonoBehaviour:
     m_ActionId: f5176af5-a24e-4d0f-a1f1-2494c7e5772c
     m_ActionName: Gameplay/SwitchPOV[/Mouse/middleButton]
   - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 160638426420906802}
+        m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
+        m_MethodName: OnSwitchToThirdPersonInput
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 0dc696a6-84b7-4ab5-bb9e-dd70cd482b8a
+    m_ActionName: Gameplay/SwitchToThirdPerson[/Keyboard/2,/Keyboard/numpad2]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 160638426420906802}
+        m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
+        m_MethodName: OnSwitchToFreeFlyInput
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: afbcd91d-27dc-495a-b5b3-b3d0fc1c0401
+    m_ActionName: Gameplay/SwitchToFreeFly[/Keyboard/3,/Keyboard/numpad3]
+  - m_PersistentCalls:
       m_Calls: []
-    m_ActionId: 646476de-5473-4eaa-aa43-880d3785973d
+    m_ActionId: 200e6fbf-66da-4c32-9d51-c6a2e68ebb20
     m_ActionName: FreeFlyCamera/Look[/Mouse/delta]
   - m_PersistentCalls:
       m_Calls:
@@ -1514,13 +1546,13 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-    m_ActionId: c5281b59-157b-4261-a3c1-294edd91d68f
+    m_ActionId: 94295002-1309-4b52-98bb-4975c7c5c30a
     m_ActionName: FreeFlyCamera/Move[/Keyboard/w,/Keyboard/s,/Keyboard/a,/Keyboard/d]
   - m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1808666860}
         m_TargetAssemblyTypeName: FreeFlyCameraController, Assembly-CSharp
-        m_MethodName: OnSwitchPOVInput
+        m_MethodName: OnSwitchToFirstPersonInput
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1530,13 +1562,13 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-    m_ActionId: 6ff02b6b-081a-4967-907b-fc8887c9c01d
-    m_ActionName: FreeFlyCamera/SwitchPOV[/Mouse/middleButton]
+    m_ActionId: 8134525a-491f-44dd-bb31-b2b0194109fd
+    m_ActionName: FreeFlyCamera/SwitchToFirstPerson[/Keyboard/1,/Keyboard/numpad1]
   - m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1808666860}
         m_TargetAssemblyTypeName: FreeFlyCameraController, Assembly-CSharp
-        m_MethodName: OnRaiseLowerInput
+        m_MethodName: OnSwitchToThirdPersonInput
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1546,8 +1578,24 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-    m_ActionId: 687b87bb-19c5-4875-b182-07ce3dc3af42
-    m_ActionName: FreeFlyCamera/RaiseLower[/Keyboard/q,/Keyboard/e]
+    m_ActionId: 562b92b6-f183-4390-90e6-811f93c6b79c
+    m_ActionName: FreeFlyCamera/SwitchToThirdPerson[/Keyboard/2,/Keyboard/numpad2]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1808666860}
+        m_TargetAssemblyTypeName: FreeFlyCameraController, Assembly-CSharp
+        m_MethodName: OnSwitchToFreeFlyInput
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 13e548eb-1d5c-433a-86ac-035ed8ce159e
+    m_ActionName: FreeFlyCamera/SwitchToFreeFly[/Keyboard/3,/Keyboard/numpad3]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Gameplay
@@ -3249,3 +3297,6 @@ MonoBehaviour:
   _playerThirdPersonCameraTransform: {fileID: 11400000, guid: a200984807b1a3d4eabbaf7912032e35,
     type: 2}
   _playerRotateBased: {fileID: 160638426291060643}
+  _playerFreeFlyCameraTransform: {fileID: 11400000, guid: 00c0f0846819123418070d8e9b8e6f50,
+    type: 2}
+  _playerInput: {fileID: 160638426420906813}

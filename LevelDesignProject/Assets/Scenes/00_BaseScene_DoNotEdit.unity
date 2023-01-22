@@ -519,7 +519,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh28642
+  m_Name: pb_Mesh29064
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -1082,7 +1082,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PlayerIndex: -1
   AutoEnableInputs: 1
-  XYAxis: {fileID: -973294901537101982, guid: 5adaba41916494a4f829c4b673a32030, type: 3}
+  XYAxis: {fileID: -5658002574882369713, guid: 5adaba41916494a4f829c4b673a32030, type: 3}
   ZAxis: {fileID: 0}
 --- !u!114 &628058609
 MonoBehaviour:
@@ -1240,18 +1240,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 59, y: 9, z: 1}
   m_Center: {x: 0.50242615, y: 0.4979372, z: 0.50348854}
---- !u!114 &647214163 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 160638426420906813, guid: 06de10e3bc45731488956b94547287bf,
-    type: 3}
-  m_PrefabInstance: {fileID: 160638426291060634}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0
@@ -3220,16 +3208,5 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
-    - target: {fileID: 160638426291060636, guid: 06de10e3bc45731488956b94547287bf,
-        type: 3}
-      propertyPath: _playerInput
-      value: 
-      objectReference: {fileID: 647214163}
-    - target: {fileID: 160638426291060636, guid: 06de10e3bc45731488956b94547287bf,
-        type: 3}
-      propertyPath: _playerFreeFlyCameraTransform
-      value: 
-      objectReference: {fileID: 11400000, guid: 00c0f0846819123418070d8e9b8e6f50,
-        type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 06de10e3bc45731488956b94547287bf, type: 3}
