@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 8280915792800092164}
   - component: {fileID: 5644230351788018603}
   - component: {fileID: 4801592865391610376}
-  m_Layer: 6
+  m_Layer: 8
   m_Name: PhysicsBall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -28,7 +28,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7632270384375149009}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.50003, y: 1.250005, z: -3.00006}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
