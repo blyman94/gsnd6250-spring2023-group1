@@ -950,7 +950,7 @@ GameObject:
   - component: {fileID: 160638426291060643}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1420,7 +1420,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 160638426420906802}
         m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
-        m_MethodName: OnWalkRunInput
+        m_MethodName: OnToggleWalkRunInput
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
