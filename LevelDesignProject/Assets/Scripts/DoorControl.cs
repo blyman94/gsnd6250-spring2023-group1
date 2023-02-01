@@ -12,7 +12,10 @@ public class DoorControl : MonoBehaviour
     [SerializeField] private BoolVariable _dependency;
     [SerializeField] private bool _isLocked = false;
     [SerializeField] private UnityEvent _firstAttemptResponse;
+    [SerializeField] private UnityEvent _firstSuccessfulAttemptResponse;
     [SerializeField] private UnityEvent _moreAttemptResponse;
+    [SerializeField] private UnityEvent _onDoorOpen;
+    [SerializeField] private UnityEvent _onDoorClose;
     [SerializeField] private bool _isFirstAttempt = true;
 
     public void ToggleDoor()
@@ -20,10 +23,12 @@ public class DoorControl : MonoBehaviour
         if (_doorOpen)
         {
             CloseDoor();
+            return;
         }
         else
         {
             OpenDoor();
+            return;
         }
     }
 
@@ -31,8 +36,11 @@ public class DoorControl : MonoBehaviour
     {
         if (!_isLocked || _dependency.Value)
         {
+            _firstSuccessfulAttemptResponse.Invoke();
+            _isFirstAttempt = false;
             _doorPivot.localRotation = Quaternion.Euler(0.0f, _openYRotation, 0.0f);
             _doorOpen = true;
+            _onDoorOpen.Invoke();
         }
         else
         {
@@ -52,5 +60,6 @@ public class DoorControl : MonoBehaviour
     {
         _doorPivot.localRotation = Quaternion.Euler(0.0f, _closedYRotation, 0.0f);
         _doorOpen = false;
+        _onDoorClose.Invoke();
     }
 }

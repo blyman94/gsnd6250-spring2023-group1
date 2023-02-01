@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.InputSystem;
 using UnityEngine;
 
 public class PlayerInteractor : MonoBehaviour
@@ -36,11 +37,14 @@ public class PlayerInteractor : MonoBehaviour
     }
     #endregion
 
-    public void Activate()
+    public void Activate(InputAction.CallbackContext context)
     {
-        if (_currentInteractable != null)
+        if (context.started)
         {
-            _currentInteractable.Interact();
+            if (_currentInteractable != null)
+            {
+                _currentInteractable.Interact();
+            }
         }
     }
 }
