@@ -18,4 +18,14 @@ public class FlorescentLight : MonoBehaviour
         }
     }
 
+    public void TurnOnLights()
+    {
+        foreach (Light light in _pointLights)
+        {
+            light.enabled = true;
+            _glowingLight.SetActive(true);
+            _notGlowingLight.SetActive(false);
+        }
+    }
+
 }
