@@ -18,7 +18,7 @@ public class PlayerInteractor : MonoBehaviour
         {
             _currentInteractable =
                 hitInfo.collider.transform.GetComponentInParent<InteractableObject>();
-            if (_currentInteractable.HasLookResponse)
+            if (_currentInteractable != null && _currentInteractable.HasLookResponse)
             {
                 _currentInteractable.OnLook();
             }

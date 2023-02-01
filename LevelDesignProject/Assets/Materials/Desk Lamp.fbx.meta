@@ -3,7 +3,27 @@ guid: 70303dfda4e23424eba18076eac23f0b
 ModelImporter:
   serializedVersion: 21300
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Desk Lamp Arm Material
+    second: {fileID: 2100000, guid: d14fe2180fe08f8489b63c623b89cdc7, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Desk Lamp Base Material
+    second: {fileID: 2100000, guid: d14fe2180fe08f8489b63c623b89cdc7, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Desk Lamp Head Interior Material
+    second: {fileID: 2100000, guid: d14fe2180fe08f8489b63c623b89cdc7, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Desk Lamp Head Material
+    second: {fileID: 2100000, guid: d14fe2180fe08f8489b63c623b89cdc7, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
