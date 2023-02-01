@@ -3,7 +3,17 @@ guid: b970de22fe708e14faabd34a539a453c
 ModelImporter:
   serializedVersion: 21300
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Exit Sign Material
+    second: {fileID: 2100000, guid: c54609a3de0e49d44943645f344715ee, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Exit Sign Text Material
+    second: {fileID: 2100000, guid: 6f8a2db10e84cfa4196ce439e551ec79, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
