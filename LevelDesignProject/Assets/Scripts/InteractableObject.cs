@@ -8,6 +8,8 @@ public class InteractableObject : MonoBehaviour
     [SerializeField] UnityEvent OnInteractResponse;
     [SerializeField] UnityEvent OnLookResponse;
 
+    public bool activated = false;
+
     public bool HasLookResponse = false;
 
     public void OnLook()
@@ -17,6 +19,7 @@ public class InteractableObject : MonoBehaviour
 
     public void Interact()
     {
+        activated = true;
         OnInteractResponse.Invoke();
     }
 }
