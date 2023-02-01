@@ -6,6 +6,14 @@ using UnityEngine.Events;
 public class InteractableObject : MonoBehaviour
 {
     [SerializeField] UnityEvent OnInteractResponse;
+    [SerializeField] UnityEvent OnLookResponse;
+
+    public bool HasLookResponse = false;
+
+    public void OnLook()
+    {
+        OnLookResponse.Invoke();
+    }
 
     public void Interact()
     {

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class DoorControl : MonoBehaviour
 {
@@ -10,6 +11,9 @@ public class DoorControl : MonoBehaviour
     [SerializeField] private bool _doorOpen = false;
     [SerializeField] private BoolVariable _dependency;
     [SerializeField] private bool _isLocked = false;
+    [SerializeField] private UnityEvent _firstAttemptResponse;
+    [SerializeField] private UnityEvent _moreAttemptResponse;
+    [SerializeField] private bool _isFirstAttempt = true;
 
     public void ToggleDoor()
     {
@@ -29,6 +33,18 @@ public class DoorControl : MonoBehaviour
         {
             _doorPivot.localRotation = Quaternion.Euler(0.0f, _openYRotation, 0.0f);
             _doorOpen = true;
+        }
+        else
+        {
+            if (_isFirstAttempt)
+            {
+                _isFirstAttempt = false;
+                _firstAttemptResponse.Invoke();
+            }
+            else
+            {
+                _moreAttemptResponse.Invoke();
+            }
         }
     }
 
