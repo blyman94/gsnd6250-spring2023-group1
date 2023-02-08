@@ -9,6 +9,7 @@ public class TeslaCoilSequence : MonoBehaviour
     [SerializeField] GameEvent _flashTriggerEvent;
     [SerializeField] GameEvent _chargeStartEvent;
     [SerializeField] GameEvent _chargeEndEvent;
+    [SerializeField] GameEvent _playerDamageEvent;
 
     public void StartSequence()
     {
@@ -20,6 +21,7 @@ public class TeslaCoilSequence : MonoBehaviour
         _chargeStartEvent.Raise();
         yield return new WaitForSeconds(_chargeTime);
         _flashTriggerEvent.Raise();
+        _playerDamageEvent.Raise();
         yield return new WaitForSeconds(_flashDuration);
         _chargeEndEvent.Raise();
     }

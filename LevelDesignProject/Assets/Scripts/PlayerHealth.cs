@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PlayerHealth : MonoBehaviour
 {
+    [SerializeField] private PlayerLevelState _playerLevelState;
     [SerializeField] private int _maxHealth = 3;
     [SerializeField] private GameEvent _onDeathEvent;
     private int _currentHealth;
@@ -11,6 +12,26 @@ public class PlayerHealth : MonoBehaviour
     private void Start()
     {
         _currentHealth = _maxHealth;
+        _playerLevelState.IsBehindCage = false;
+        _playerLevelState.IsInCage = false;
+    }
+
+    public void TakeLightningDamage(int damageTaken)
+    {
+        if (_playerLevelState.IsInCage)
+        {
+            return;
+        }
+        TakeDamage(damageTaken);
+    }
+
+    public void TakeFireDamage(int damageTaken)
+    {
+        if (_playerLevelState.IsBehindCage)
+        {
+            return;
+        }
+        TakeDamage(damageTaken);
     }
 
     public void TakeDamage(int damageTaken)
