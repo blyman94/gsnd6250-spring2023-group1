@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Interactable
   - Hazard
+  - BehindTag
+  - InsideTag
   layers:
   - Default
   - TransparentFX
@@ -19,7 +21,7 @@ TagManager:
   - Interactable
   - WalkThrough
   - Hazard
-  - 
+  - StateChange
   - 
   - 
   - 

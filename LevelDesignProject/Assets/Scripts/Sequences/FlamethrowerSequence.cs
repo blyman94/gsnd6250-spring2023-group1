@@ -11,12 +11,7 @@ public class FlamethrowerSequence : MonoBehaviour
     [SerializeField] private GameEvent _flamethrowerStartEvent;
     [SerializeField] private GameEvent _flamethrowerEndEvent;
     [SerializeField] private GameEvent _damagePlayerEvent;
-
-    public void Start()
-    {
-        StartSequence();
-    }
-
+    
     public void StartSequence()
     {
         StartCoroutine(FlamethrowerRoutine());
