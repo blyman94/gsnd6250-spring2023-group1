@@ -10,11 +10,6 @@ public class TeslaCoilSequence : MonoBehaviour
     [SerializeField] GameEvent _chargeStartEvent;
     [SerializeField] GameEvent _chargeEndEvent;
 
-    private void Start()
-    {
-        StartSequence();
-    }
-
     public void StartSequence()
     {
         StartCoroutine(TeslaCoilRoutine());
