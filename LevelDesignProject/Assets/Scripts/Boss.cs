@@ -20,7 +20,7 @@ public class Boss : MonoBehaviour
 
     private IEnumerator RandomAttackSequence()
     {
-        _sequenceStartEvents[Random.Range(0, _sequenceStartEvents.Length - 1)].Raise();
+        _sequenceStartEvents[Random.Range(0, _sequenceStartEvents.Length)].Raise();
         float randomTime = Random.Range(_attackSpacingRange.x, _attackSpacingRange.y);
         yield return new WaitForSeconds(randomTime);
         Invoke("PickRandomAttack", 0.0f);
