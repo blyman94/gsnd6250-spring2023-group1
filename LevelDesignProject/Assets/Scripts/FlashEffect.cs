@@ -11,11 +11,6 @@ public class FlashEffect : MonoBehaviour
 
     private float _elapsedTime;
 
-    private void Start()
-    {
-        PlayEffect();
-    }
-
     public void PlayEffect()
     {
         StartCoroutine(FlashEffectFadeInRoutine());
