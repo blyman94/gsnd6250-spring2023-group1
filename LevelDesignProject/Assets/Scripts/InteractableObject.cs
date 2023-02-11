@@ -5,21 +5,16 @@ using UnityEngine.Events;
 
 public class InteractableObject : MonoBehaviour
 {
-    [SerializeField] UnityEvent OnInteractResponse;
-    [SerializeField] UnityEvent OnLookResponse;
+    [SerializeField] private string _stringToDisplay;
+    [SerializeField] private UnityEvent _OnInteractResponse;
 
-    public bool activated = false;
-
-    public bool HasLookResponse = false;
-
-    public void OnLook()
+    public void Activate()
     {
-        OnLookResponse.Invoke();
+        _OnInteractResponse?.Invoke();
     }
 
-    public void Interact()
+    public string GetInteractionString()
     {
-        activated = true;
-        OnInteractResponse.Invoke();
+        return _stringToDisplay;
     }
 }
