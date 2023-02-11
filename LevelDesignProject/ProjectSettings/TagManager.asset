@@ -5,6 +5,9 @@ TagManager:
   serializedVersion: 2
   tags:
   - Interactable
+  - Hazard
+  - BehindTag
+  - InsideTag
   layers:
   - Default
   - TransparentFX
@@ -17,8 +20,8 @@ TagManager:
   - PhysicsObject
   - Interactable
   - WalkThrough
-  - 
-  - 
+  - Hazard
+  - StateChange
   - 
   - 
   - 
