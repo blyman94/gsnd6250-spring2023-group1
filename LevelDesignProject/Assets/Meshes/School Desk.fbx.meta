@@ -3,7 +3,27 @@ guid: 3b3eb9f2cfa8cc649a54527a7452cdbb
 ModelImporter:
   serializedVersion: 21300
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Black Metal Material
+    second: {fileID: 2100000, guid: ecc1acfa62d68084e874def3528914ad, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Desk Foot Material
+    second: {fileID: 2100000, guid: 6921cd63f693899428cc1ed8b01ec61b, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Desk Trim Material
+    second: {fileID: 2100000, guid: 8ff934d9770c42144992c8ef5b0ac007, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Desk Wood Material
+    second: {fileID: 2100000, guid: 03685b06c43659444b720fc62dd62a87, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0

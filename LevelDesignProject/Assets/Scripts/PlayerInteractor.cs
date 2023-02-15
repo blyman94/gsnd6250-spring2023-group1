@@ -23,15 +23,26 @@ public class PlayerInteractor : MonoBehaviour
 
             if (hitInfo.collider.CompareTag("Interactable"))
             {
-                _pickupDetectedEvent.Raise();
-                _pickupPromptString.Value = 
-                    string.Format("Interact \n{0}", 
-                    _currentInteractableObject.GetInteractionString());
+                if (!_currentInteractableObject.IsTimeActivated)
+                {
+                    _pickupDetectedEvent.Raise();
+                    _pickupPromptString.Value =
+                        string.Format("Interact \n{0}",
+                        _currentInteractableObject.GetInteractionString());
+                }
+                else
+                {
+                    _currentInteractableObject.IsBeingLookedAt = true;
+                }
             }
         }
         else
         {
             _nothingDetectedEvent.Raise();
+            if (_currentInteractableObject != null)
+            {
+                _currentInteractableObject.IsBeingLookedAt = false;
+            }
             _currentInteractableObject = null;
         }
     }
