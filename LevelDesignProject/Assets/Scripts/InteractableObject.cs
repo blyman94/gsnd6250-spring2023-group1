@@ -5,21 +5,42 @@ using UnityEngine.Events;
 
 public class InteractableObject : MonoBehaviour
 {
-    [SerializeField] UnityEvent OnInteractResponse;
-    [SerializeField] UnityEvent OnLookResponse;
+    [SerializeField] private string _stringToDisplay;
+    [SerializeField] private UnityEvent _OnInteractResponse;
+    public bool IsTimeActivated;
+    [SerializeField] private float _timeToActivate;
 
-    public bool activated = false;
+    public bool IsBeingLookedAt { get; set; }
 
-    public bool HasLookResponse = false;
+    private float _elapsedTime;
 
-    public void OnLook()
+    private void Start()
     {
-        OnLookResponse.Invoke();
+        _elapsedTime = 0.0f;
     }
 
-    public void Interact()
+    private void Update()
     {
-        activated = true;
-        OnInteractResponse.Invoke();
+        if (IsBeingLookedAt)
+        {
+            _elapsedTime += Time.deltaTime;
+            if (_elapsedTime >= _timeToActivate)
+            {
+                _OnInteractResponse?.Invoke();
+            }
+        }
+    }
+
+    public void Activate()
+    {
+        if (IsTimeActivated)
+        {
+            _OnInteractResponse?.Invoke();
+        }
+    }
+
+    public string GetInteractionString()
+    {
+        return _stringToDisplay;
     }
 }

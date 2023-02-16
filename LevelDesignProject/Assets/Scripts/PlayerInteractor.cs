@@ -1,51 +1,63 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine.InputSystem;
 using UnityEngine;
 
 public class PlayerInteractor : MonoBehaviour
 {
-    [SerializeField] private float _interactDistance = 5.0f;
-    [SerializeField] private LayerMask _layermask;
+    [SerializeField] private float _interactDistance = 2.0f;
+    [SerializeField] private LayerMask _detectLayers;
+    [SerializeField] private GameEvent _pickupDetectedEvent;
+    [SerializeField] private GameEvent _nothingDetectedEvent;
+    [SerializeField] private StringVariable _pickupPromptString;
 
-    private InteractableObject _currentInteractable;
+    private InteractableObject _currentInteractableObject;
 
-    #region MonoBehaviour Methods
     private void Update()
     {
-        if (Physics.Raycast(transform.position, transform.forward,
-            out RaycastHit hitInfo, _interactDistance, _layermask))
+        if (Physics.Raycast(transform.position,
+            transform.forward, out RaycastHit hitInfo,
+            _interactDistance, _detectLayers))
         {
-            _currentInteractable =
-                hitInfo.collider.transform.GetComponentInParent<InteractableObject>();
-            if (_currentInteractable != null && _currentInteractable.HasLookResponse &&
-                !_currentInteractable.activated)
+            if (_currentInteractableObject == null)
             {
-                _currentInteractable.OnLook();
+                _currentInteractableObject = hitInfo.collider.GetComponent<InteractableObject>();
+            }
+
+            if (hitInfo.collider.CompareTag("Interactable"))
+            {
+                if (!_currentInteractableObject.IsTimeActivated)
+                {
+                    _pickupDetectedEvent.Raise();
+                    _pickupPromptString.Value =
+                        string.Format("Interact \n{0}",
+                        _currentInteractableObject.GetInteractionString());
+                }
+                else
+                {
+                    _currentInteractableObject.IsBeingLookedAt = true;
+                }
             }
         }
         else
         {
-            _currentInteractable = null;
+            _nothingDetectedEvent.Raise();
+            if (_currentInteractableObject != null)
+            {
+                _currentInteractableObject.IsBeingLookedAt = false;
+            }
+            _currentInteractableObject = null;
+        }
+    }
+
+    public void Interact()
+    {
+        if (_currentInteractableObject != null)
+        {
+            _currentInteractableObject.Activate();
         }
     }
 
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.cyan;
-        Gizmos.DrawLine(transform.position,
-            transform.position + (transform.forward * _interactDistance));
-    }
-    #endregion
-
-    public void Activate(InputAction.CallbackContext context)
-    {
-        if (context.started)
-        {
-            if (_currentInteractable != null)
-            {
-                _currentInteractable.Interact();
-            }
-        }
+        Gizmos.DrawLine(transform.position, transform.position + (transform.forward * _interactDistance));
     }
 }
