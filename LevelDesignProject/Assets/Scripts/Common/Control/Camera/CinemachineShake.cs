@@ -20,7 +20,8 @@ public class CinemachineShake : MonoBehaviour
 
     public void StartShake()
     {
-        StartCoroutine(StartShakeRoutine());
+        cinemachineBasicMultiChannelPerlin.m_FrequencyGain = shakeFrequency;
+        StartCoroutine(FadeOutShakeRoutine());
     }
 
     public void StopShake()
@@ -28,7 +29,7 @@ public class CinemachineShake : MonoBehaviour
         cinemachineBasicMultiChannelPerlin.m_FrequencyGain = 0;
     }
 
-    private IEnumerator StartShakeRoutine()
+    private IEnumerator FadeOutShakeRoutine()
     {
         _elapsedTime = 0;
         cinemachineBasicMultiChannelPerlin.m_AmplitudeGain = shakeAmplitude;
@@ -37,10 +38,10 @@ public class CinemachineShake : MonoBehaviour
         {
             _elapsedTime += Time.deltaTime;
             cinemachineBasicMultiChannelPerlin.m_FrequencyGain =
-                Mathf.Lerp(0.0f, shakeFrequency, _elapsedTime / shakeFadeTime);
+                Mathf.Lerp(shakeFrequency, 0.0f, _elapsedTime / shakeFadeTime);
             yield return null;
         }
 
-        cinemachineBasicMultiChannelPerlin.m_FrequencyGain = shakeFrequency;
+        cinemachineBasicMultiChannelPerlin.m_FrequencyGain = 0;
     }
 }

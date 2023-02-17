@@ -95,6 +95,7 @@ GameObject:
   - component: {fileID: 4517568276140633032}
   - component: {fileID: 4517568276140633047}
   - component: {fileID: 4517568276140633034}
+  - component: {fileID: 6500144521453892386}
   m_Layer: 9
   m_Name: Log
   m_TagString: Pickup
@@ -109,7 +110,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4517568276140633046}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.83, y: 1.05, z: -0.03}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -147,21 +148,9 @@ MonoBehaviour:
   _OnInteractResponse:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 11400000, guid: bdc664c948e065f44b754cbb6a76b953, type: 2}
-        m_TargetAssemblyTypeName: ScriptableObjectVariable`1[[System.Boolean, mscorlib
-        m_MethodName: set_Value
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
-        m_CallState: 2
-      - m_Target: {fileID: 4517568276140633034}
-        m_TargetAssemblyTypeName: GameObjectDestroyer, Assembly-CSharp
-        m_MethodName: DestroyThisObject
+      - m_Target: {fileID: 6500144521453892386}
+        m_TargetAssemblyTypeName: Log, Assembly-CSharp
+        m_MethodName: TryPickupLog
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -185,3 +174,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9107ac7555acfdf4f9a135ae2418b409, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &6500144521453892386
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4517568276140633046}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc67401709934e746b9994089cf85866, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _playerHasLogVariable: {fileID: 11400000, guid: bdc664c948e065f44b754cbb6a76b953,
+    type: 2}
+  _logPickupFailedEvent: {fileID: 11400000, guid: f70679b9355a22e479d521be81a6ba4a,
+    type: 2}
