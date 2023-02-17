@@ -40,6 +40,10 @@ public class ControlsDisplay : MonoBehaviour
     {
         _currentPOV.VariableUpdated += SwitchControls;
     }
+    private void Start()
+    {
+        HideControls();
+    }
     private void OnDisable()
     {
         _currentPOV.VariableUpdated -= SwitchControls;
