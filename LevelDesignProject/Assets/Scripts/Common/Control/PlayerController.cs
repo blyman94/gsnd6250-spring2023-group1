@@ -14,6 +14,8 @@ public class PlayerController : MonoBehaviour
 
     [SerializeField] private RotateBasedOnMainCameraRotation _rotator;
 
+    [SerializeField] private PlayerInteractor _playerInteractor;
+
     [SerializeField] private PlayerPOVSelector _povSelector;
 
     /// <summary>
@@ -49,6 +51,13 @@ public class PlayerController : MonoBehaviour
         if (context.started)
         {
             _playerStateMachine.IsCrouchPressed = !_playerStateMachine.IsCrouchPressed;
+        }
+    }
+    public void OnInteractInput(InputAction.CallbackContext context)
+    {
+        if (context.started)
+        {
+            _playerInteractor.Interact();
         }
     }
     public void OnJumpInput(InputAction.CallbackContext context)

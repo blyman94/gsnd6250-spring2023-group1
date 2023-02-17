@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 372571108}
   - component: {fileID: 372571110}
   - component: {fileID: 372571109}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: PlayerInteractor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1420,6 +1420,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _playerStateMachine: {fileID: 160638425816321697}
   _rotator: {fileID: 160638426291060643}
+  _playerInteractor: {fileID: 372571110}
   _povSelector: {fileID: 160638426291060636}
   _playerInput: {fileID: 160638426420906813}
 --- !u!114 &160638426420906813
@@ -1533,19 +1534,7 @@ MonoBehaviour:
     m_ActionId: 7bb2d56f-babb-4433-b0e2-bf18db1bbd1b
     m_ActionName: Gameplay/Crouch[/Keyboard/ctrl]
   - m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 160638426420906802}
-        m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
-        m_MethodName: OnSprintInput
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
     m_ActionId: 6df523e3-0bc6-4a79-92ce-bad05fa03f8c
     m_ActionName: Gameplay/Sprint[/Keyboard/e]
   - m_PersistentCalls:
@@ -1712,6 +1701,22 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 3f20e815-2eda-49ba-a750-198c9203542c
     m_ActionName: FreeFlyCamera/HideControlsMenu[/Keyboard/backquote]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 160638426420906802}
+        m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
+        m_MethodName: OnInteractInput
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: b4509b73-fd0c-467c-a540-9a3896d3ca65
+    m_ActionName: Gameplay/Interact[/Keyboard/e,/Mouse/leftButton,/Mouse/rightButton,/Keyboard/space]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Gameplay
