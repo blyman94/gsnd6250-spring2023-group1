@@ -48,6 +48,13 @@ public class PlayerInteractor : MonoBehaviour
                 _pickupDetectedEvent.Raise();
                 _pickupPromptString.Value = "Add\nLog";
             }
+
+            if (hitInfo.collider.CompareTag("Note"))
+            {
+                _pickupDetectedEvent.Raise();
+                _pickupPromptString.Value = string.Format(("Read\n{0}"), 
+                    _currentInteractableObject.GetInteractionString());
+            }
         }
         else
         {

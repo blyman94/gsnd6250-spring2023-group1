@@ -10,6 +10,7 @@ TagManager:
   - InsideTag
   - Pickup
   - Bonfire
+  - Note
   layers:
   - Default
   - TransparentFX

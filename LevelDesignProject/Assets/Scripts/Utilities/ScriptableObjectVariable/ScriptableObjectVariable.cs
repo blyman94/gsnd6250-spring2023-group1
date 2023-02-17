@@ -20,7 +20,7 @@ public abstract class ScriptableObjectVariable<T> : ScriptableObject
     /// <summary>
     /// The value of this variable as a <T>.
     /// </summary>
-    [SerializeField] private T value;
+    [SerializeField] protected T value;
 
     /// <summary>
     /// The value of this variable as a <T>. Invokes VariableUpdated when set.
