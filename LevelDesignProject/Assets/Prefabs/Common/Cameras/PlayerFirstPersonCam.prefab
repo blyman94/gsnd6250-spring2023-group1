@@ -14,6 +14,8 @@ GameObject:
   - component: {fileID: 8957101072707764365}
   - component: {fileID: 8957101072707764366}
   - component: {fileID: 8957101072707764364}
+  - component: {fileID: 1891758165}
+  - component: {fileID: 1891758166}
   m_Layer: 0
   m_Name: PlayerFirstPersonCam
   m_TagString: Untagged
@@ -130,6 +132,50 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   storageVariable: {fileID: 11400000, guid: deab49a4695b47c499bf1664a5cc5458, type: 2}
+--- !u!114 &1891758165
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8957101072707764362}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2d1f5267cf8ea2c479db78bba8e0e0bb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Event: {fileID: 11400000, guid: e52643852f63ede409b3e0acae12df0b, type: 2}
+  Response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1891758166}
+        m_TargetAssemblyTypeName: CinemachineShake, Assembly-CSharp
+        m_MethodName: StartShake
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &1891758166
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8957101072707764362}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0a73c264c5e43d24287252b1a7d17fc7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shakeAmplitude: 0.25
+  shakeFrequency: 5
+  shakeFadeTime: 0.25
+  _virtualCam: {fileID: 8957101072707764361}
 --- !u!1 &8957101073618717401
 GameObject:
   m_ObjectHideFlags: 0
@@ -142,6 +188,7 @@ GameObject:
   - component: {fileID: 8957101073618717405}
   - component: {fileID: 8957101073618717406}
   - component: {fileID: 8957101073618717407}
+  - component: {fileID: 1028706778}
   m_Layer: 0
   m_Name: cm
   m_TagString: Untagged
@@ -251,3 +298,20 @@ MonoBehaviour:
     m_LegacyHeadingDefinition: -1
     m_LegacyVelocityFilterStrength: -1
   m_ApplyBeforeBody: 0
+--- !u!114 &1028706778
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8957101073618717401}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 68bb026fafb42b14791938953eaace77, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_NoiseProfile: {fileID: 11400000, guid: 69ce8388f6785dd4c8c39915efece2f4, type: 2}
+  m_PivotOffset: {x: 0, y: 0, z: 0}
+  m_AmplitudeGain: 1
+  m_FrequencyGain: 0
+  mNoiseOffsets: {x: 0, y: 0, z: 0}
