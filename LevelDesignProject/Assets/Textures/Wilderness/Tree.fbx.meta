@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: a381cc828d9ad2c48b2b76ebcc8c4077
+guid: 1c59cf62a59e09b4690b30c4bd8d9465
 ModelImporter:
   serializedVersion: 21300
   internalIDToNameTable: []
@@ -7,13 +7,13 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: Dirt Path Material
-    second: {fileID: 2100000, guid: 0dbdf7ca797b36248836da230d8a32be, type: 2}
+      name: Leaves Material
+    second: {fileID: 2100000, guid: ecedf8c3b8a544742b12cd7ba6cfbbeb, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: Rock Texture
-    second: {fileID: 2100000, guid: cc3fd586e2a642b44a9a1811f55b2987, type: 2}
+      name: Tree Wood Material
+    second: {fileID: 2100000, guid: 233932e7b39fa1d4883c51082cef0702, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
