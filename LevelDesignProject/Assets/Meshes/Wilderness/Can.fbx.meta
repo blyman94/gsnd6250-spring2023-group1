@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 3c730dc82bc5b8f4a8c4b57cd8585849
+guid: b9cec679728863e4498301a2ec038821
 ModelImporter:
   serializedVersion: 21300
   internalIDToNameTable: []
@@ -7,13 +7,13 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: Clear
-    second: {fileID: 2100000, guid: 7b30740bee70bb547ac4ee0fefe56fd8, type: 2}
+      name: CanMat
+    second: {fileID: 2100000, guid: 1c84697cef139a34da35da9901dc7759, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: Metal
-    second: {fileID: 2100000, guid: 7b30740bee70bb547ac4ee0fefe56fd8, type: 2}
+    second: {fileID: 2100000, guid: 6921cd63f693899428cc1ed8b01ec61b, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
