@@ -35,6 +35,26 @@ public class PlayerInteractor : MonoBehaviour
                     _currentInteractableObject.IsBeingLookedAt = true;
                 }
             }
+
+            if (hitInfo.collider.CompareTag("Pickup"))
+            {
+                _pickupDetectedEvent.Raise();
+                _pickupPromptString.Value = string.Format(("Pickup\n{0}"), 
+                    _currentInteractableObject.GetInteractionString());
+            }
+
+            if (hitInfo.collider.CompareTag("Bonfire"))
+            {
+                _pickupDetectedEvent.Raise();
+                _pickupPromptString.Value = "Add\nLog";
+            }
+
+            if (hitInfo.collider.CompareTag("Note"))
+            {
+                _pickupDetectedEvent.Raise();
+                _pickupPromptString.Value = string.Format(("Read\n{0}"), 
+                    _currentInteractableObject.GetInteractionString());
+            }
         }
         else
         {

@@ -8,6 +8,9 @@ TagManager:
   - Hazard
   - BehindTag
   - InsideTag
+  - Pickup
+  - Bonfire
+  - Note
   layers:
   - Default
   - TransparentFX

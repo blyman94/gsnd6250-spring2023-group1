@@ -33,7 +33,7 @@ public class InteractableObject : MonoBehaviour
 
     public void Activate()
     {
-        if (IsTimeActivated)
+        if (!IsTimeActivated)
         {
             _OnInteractResponse?.Invoke();
         }
