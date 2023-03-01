@@ -25,7 +25,7 @@ Material:
     type: 3}
   m_ValidKeywords: []
   m_InvalidKeywords: []
-  m_LightmapFlags: 2
+  m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
   m_CustomRenderQueue: -1
@@ -48,13 +48,13 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _Metallic: -0.27
+    - _Metallic: 0
     - _QueueControl: 0
     - _QueueOffset: 0
     - _Scale: 100
-    - _Smoothness: 0.1
+    - _Smoothness: 0.5
     m_Colors:
     - _MainColor: {r: 0.2075472, g: 0.1769141, b: 0.1442388, a: 1}
     - _SecondColor: {r: 0.1037736, g: 0.06836656, b: 0.03295953, a: 1}
-    - _Tiling: {r: 0, g: 1, b: 0, a: 0}
+    - _Tiling: {r: 1, g: 1, b: 0, a: 0}
   m_BuildTextureStacks: []
