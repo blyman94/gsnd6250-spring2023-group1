@@ -715,10 +715,10 @@ MonoBehaviour:
   CrouchTime: 0.25
   _gravityScale: 1
   JumpDisableGroundSensorTime: 0.1
-  JumpHeight: 1.5
+  JumpHeight: 1
   MaxFallVelocity: 50
   Acceleration: -1
-  BaseSpeedMultipler: 1
+  BaseSpeedMultipler: 0.5
   _runSpeed: 5
   SprintSpeedMultiplier: 1.5
   _walkSpeed: 1.5
@@ -1613,7 +1613,19 @@ MonoBehaviour:
     m_ActionId: 559c5f30-772b-431b-b00c-1a199a3caddf
     m_ActionName: Gameplay/Toggle Walk/Run[/Keyboard/capsLock]
   - m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 160638426420906802}
+        m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
+        m_MethodName: OnJumpInput
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_ActionId: aca55959-6ae1-4e6b-a3db-5a71d0325ca1
     m_ActionName: Gameplay/Jump[/Keyboard/space]
   - m_PersistentCalls:
