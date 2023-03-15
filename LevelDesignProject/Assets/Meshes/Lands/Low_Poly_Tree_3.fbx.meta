@@ -3,7 +3,17 @@ guid: 1bf2d9f6d1dcb174da940f40342e985c
 ModelImporter:
   serializedVersion: 21300
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Low Poly Tree Leaves Material
+    second: {fileID: 2100000, guid: 7c1b569f96615534fab2c6dfe715c96a, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Low Poly Tree Trunk Material
+    second: {fileID: 2100000, guid: 091e69f22222a114cb53514a8a5a1422, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0

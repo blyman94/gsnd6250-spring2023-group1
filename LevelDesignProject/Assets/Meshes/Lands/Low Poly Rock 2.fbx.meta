@@ -3,7 +3,12 @@ guid: 896add75d877dff40b4fdd8d65a31dc4
 ModelImporter:
   serializedVersion: 21300
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Low Poly Rock Material
+    second: {fileID: 2100000, guid: e3cd961f37e942648be807d44f6c0b5b, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
