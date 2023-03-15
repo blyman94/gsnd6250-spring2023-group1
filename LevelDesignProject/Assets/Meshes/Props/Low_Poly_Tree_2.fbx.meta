@@ -1,19 +1,9 @@
 fileFormatVersion: 2
-guid: 0d89c00f01e955a46943606dba5d9969
+guid: 35e1d223260fd5f4f8f89f12e8ae1023
 ModelImporter:
   serializedVersion: 21300
   internalIDToNameTable: []
-  externalObjects:
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Ramp Material
-    second: {fileID: 2100000, guid: 580305b0f3c913142bb5b0d8c58938da, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Ramp Path Material
-    second: {fileID: 2100000, guid: e82ca43f6e4f65d458d6f2def0882731, type: 2}
+  externalObjects: {}
   materials:
     materialImportMode: 2
     materialName: 0
