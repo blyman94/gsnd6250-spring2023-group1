@@ -6,6 +6,7 @@ public class MemoryRoom : MonoBehaviour
 {
     [SerializeField] private float _roomFadeDuration = 5.0f;
     [SerializeField] private int _maxFadeablePriority = 4;
+    [SerializeField] private bool _startHidden = false;
     private List<ObjectFade> _allObjectFades;
     private List<List<ObjectFade>> _objectFadesByPriority;
 
@@ -14,7 +15,14 @@ public class MemoryRoom : MonoBehaviour
 
     private void Start()
     {
-        AggregateObjectFades();
+        if (_startHidden)
+        {
+            HideAll();
+        }
+        else
+        {
+            ShowAll();
+        }
     }
 
     public void FadeInAll()
@@ -101,7 +109,7 @@ public class MemoryRoom : MonoBehaviour
         _objectFadesByPriority = new List<List<ObjectFade>>();
 
         MaxPriority = Mathf.Clamp(_allObjectFades.Max(objectFade =>
-            objectFade.FadePriority), 0, _maxFadeablePriority); 
+            objectFade.FadePriority), 0, _maxFadeablePriority);
         MinPriority = _allObjectFades.Min(objectFade =>
             objectFade.FadePriority);
 

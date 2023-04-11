@@ -3355,6 +3355,7 @@ GameObject:
   - component: {fileID: 874163721}
   - component: {fileID: 874163720}
   - component: {fileID: 874163722}
+  - component: {fileID: 874163723}
   m_Layer: 3
   m_Name: GreyboxPickup
   m_TagString: Interactable
@@ -3418,6 +3419,47 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 2091697927}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 11400000, guid: 47a3a9221975c7f478e11d10dee3bff4, type: 2}
+        m_TargetAssemblyTypeName: Blyman94.CommonSolutions.GameEvent, Blyman94.CommonSolutions
+        m_MethodName: Raise
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &874163723
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 874163719}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 51fff977d7a5d11408ddb484731c85a5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  FadePriority: 5
+  _objectRenderer: {fileID: 1035135863}
+  _objectCollider: {fileID: 0}
+  _defaultFadeDuration: 5
+  _retainShadows: 0
 --- !u!1 &928842693
 GameObject:
   m_ObjectHideFlags: 0
@@ -4950,6 +4992,7 @@ GameObject:
   - component: {fileID: 1369866736}
   - component: {fileID: 1369866737}
   - component: {fileID: 1369866738}
+  - component: {fileID: 1369866739}
   m_Layer: 0
   m_Name: YellowRoom
   m_TagString: Untagged
@@ -4988,6 +5031,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _roomFadeDuration: 5
   _maxFadeablePriority: 4
+  _startHidden: 1
 --- !u!114 &1369866738
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5004,6 +5048,46 @@ MonoBehaviour:
   _priorityFadeDurations: []
   _startDelay: 0
   _timeBetweenObjectFades: 2
+--- !u!114 &1369866739
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1369866735}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cd86403b2c2336a48ba8f70b9e0cb777, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _event: {fileID: 11400000, guid: 47a3a9221975c7f478e11d10dee3bff4, type: 2}
+  _response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1369866737}
+        m_TargetAssemblyTypeName: MemoryRoom, Assembly-CSharp
+        m_MethodName: FadeInAll
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1369866738}
+        m_TargetAssemblyTypeName: MemoryRoomFadeSequence, Assembly-CSharp
+        m_MethodName: StartFadeOutSequence
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &1384017537
 GameObject:
   m_ObjectHideFlags: 0
@@ -6990,6 +7074,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2091697929}
   - component: {fileID: 2091697928}
+  - component: {fileID: 2091697930}
   m_Layer: 0
   m_Name: GreyboxTable
   m_TagString: Untagged
@@ -7030,6 +7115,23 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2091697930
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2091697927}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 51fff977d7a5d11408ddb484731c85a5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  FadePriority: 5
+  _objectRenderer: {fileID: 0}
+  _objectCollider: {fileID: 0}
+  _defaultFadeDuration: 5
+  _retainShadows: 0
 --- !u!1 &2116671814
 GameObject:
   m_ObjectHideFlags: 0

@@ -17,6 +17,10 @@ public class MemoryRoomFadeSequence : MonoBehaviour
     private void Start()
     {
         currentPriority = _memoryRoom.MinPriority;
+    }
+
+    public void StartFadeOutSequence()
+    {
         InvokeRepeating("FadeOutObject", _startDelay, _timeBetweenObjectFades);
     }
 
