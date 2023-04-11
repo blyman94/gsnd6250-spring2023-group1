@@ -3,19 +3,20 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class ObjectFade : MonoBehaviour
-{   
+{
     /// <summary>
     /// The lower the priority, the sooner the object fades out. Set to 6 to 
     /// prevent fading entirely (i.e. for walls and floors).
     /// </summary>
-    [Range(0,5)]
+    [Range(0, 5)]
     [Header("Priority")]
-    [Tooltip("The lower the priority, the sooner the object fades out. Set " + 
+    [Tooltip("The lower the priority, the sooner the object fades out. Set " +
         "to 5 to prevent fading entirely (i.e. for walls and floors).")]
     public int FadePriority = 5;
 
     [Header("Component References")]
     [SerializeField] private Renderer _objectRenderer;
+    [SerializeField] private Collider _objectCollider;
 
     [Header("Fade Parameters")]
     [SerializeField] private float _defaultFadeDuration = 5.0f;
@@ -30,6 +31,7 @@ public class ObjectFade : MonoBehaviour
             material.color = new Color(material.color.r,
                 material.color.g, material.color.b, 0.0f);
         }
+        SetColliderActive(false);
     }
 
     public void In()
@@ -79,6 +81,15 @@ public class ObjectFade : MonoBehaviour
             material.color = new Color(material.color.r,
                 material.color.g, material.color.b, 1.0f);
         }
+        SetColliderActive(true);
+    }
+
+    private void SetColliderActive(bool active)
+    {
+        if (_objectCollider != null)
+        {
+            _objectCollider.enabled = active;
+        }
     }
 
     private IEnumerator FadeMaterialRoutine(Material material, bool fadeIn, float fadeDuration)
@@ -86,6 +97,10 @@ public class ObjectFade : MonoBehaviour
         if (!fadeIn)
         {
             SetMaterialTransparent(material);
+        }
+        else
+        {
+            SetColliderActive(true);
         }
 
         float elapsedTime = fadeIn ?
@@ -110,6 +125,10 @@ public class ObjectFade : MonoBehaviour
         if (fadeIn)
         {
             SetMaterialOpaque(material);
+        }
+        else
+        {
+            SetColliderActive(false);
         }
     }
 
