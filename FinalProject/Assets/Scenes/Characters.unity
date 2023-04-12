@@ -190,6 +190,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Leonard_Ch31
       objectReference: {fileID: 0}
+    - target: {fileID: 5866666021909216657, guid: 2e6fff09f4b9213419b5558f092bff9b,
+        type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 1d403920e6043cd4abfe1c44475bf112, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2e6fff09f4b9213419b5558f092bff9b, type: 3}
 --- !u!1 &547501267
@@ -290,6 +295,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Louise_Ch07
       objectReference: {fileID: 0}
+    - target: {fileID: 5866666021909216657, guid: a7058e377ebc40f4f81c922554e42864,
+        type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 1d403920e6043cd4abfe1c44475bf112, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a7058e377ebc40f4f81c922554e42864, type: 3}
 --- !u!1001 &943047693
@@ -359,6 +369,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Megan_Ch22
       objectReference: {fileID: 0}
+    - target: {fileID: 5866666021909216657, guid: 34bd1e0584f021d48807e7a824e47d32,
+        type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 1d403920e6043cd4abfe1c44475bf112, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 34bd1e0584f021d48807e7a824e47d32, type: 3}
 --- !u!1 &975435688
@@ -546,6 +561,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Josh_Ch23
       objectReference: {fileID: 0}
+    - target: {fileID: 5866666021909216657, guid: f3d08e235f0f8dd409250c0479f98183,
+        type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 1d403920e6043cd4abfe1c44475bf112, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f3d08e235f0f8dd409250c0479f98183, type: 3}
 --- !u!1 &1088152872
