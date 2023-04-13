@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.Events;
+
 
 public class OpenDoorAndWalkSequence : MonoBehaviour
 {
@@ -24,6 +26,9 @@ public class OpenDoorAndWalkSequence : MonoBehaviour
     [Header("Rotation Parameters")]
     [SerializeField] private Transform _lookAtWhenDone;
     [SerializeField] private float _rotationSpeed = 2.0f;
+
+    [Header("Events")]
+    [SerializeField] private UnityEvent OnDestinationReached;
 
     private bool _actorIsMoving;
     private int _currentPathNodeIndex;
@@ -107,15 +112,15 @@ public class OpenDoorAndWalkSequence : MonoBehaviour
     {
         Vector3 direction =
             (_lookAtWhenDone.position - transform.position).normalized;
+        Quaternion targetRotation = Quaternion.LookRotation(direction);
 
-        Quaternion lookRotation = Quaternion.LookRotation(direction);
-
-        while (Quaternion.Angle(transform.rotation, lookRotation) > 0.01f)
+        while (Quaternion.Angle(transform.rotation, targetRotation) > 1.5f)
         {
-            transform.rotation = Quaternion.Slerp(transform.rotation,
-                lookRotation, Time.deltaTime * _rotationSpeed);
+            Debug.Log(Quaternion.Angle(transform.rotation, targetRotation));
+            transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, Time.deltaTime * _rotationSpeed);
             yield return null;
         }
+        OnDestinationReached?.Invoke();
     }
 
     private IEnumerator WaitForObjectPlaceRoutine()
