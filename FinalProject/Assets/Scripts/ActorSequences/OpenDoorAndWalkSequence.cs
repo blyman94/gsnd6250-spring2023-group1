@@ -8,6 +8,7 @@ using UnityEngine.Events;
 public class OpenDoorAndWalkSequence : MonoBehaviour
 {
     [Header("Component References")]
+    [SerializeField] private Transform _actorTransform;
     [SerializeField] private NavMeshAgent _actorNavMeshAgent;
     [SerializeField] private Animator _actorAnimator;
     [SerializeField] private Door _doorToOpen;
@@ -28,7 +29,7 @@ public class OpenDoorAndWalkSequence : MonoBehaviour
     [SerializeField] private float _rotationSpeed = 2.0f;
 
     [Header("Events")]
-    [SerializeField] private UnityEvent OnDestinationReached;
+    [SerializeField] private UnityEvent _onDestinationReached;
 
     private bool _actorIsMoving;
     private int _currentPathNodeIndex;
@@ -111,16 +112,17 @@ public class OpenDoorAndWalkSequence : MonoBehaviour
     private IEnumerator RotateTowardsTarget()
     {
         Vector3 direction =
-            (_lookAtWhenDone.position - transform.position).normalized;
+            (_lookAtWhenDone.position - _actorTransform.position).normalized;
         Quaternion targetRotation = Quaternion.LookRotation(direction);
 
-        while (Quaternion.Angle(transform.rotation, targetRotation) > 1.5f)
+        while (Quaternion.Angle(_actorTransform.rotation, targetRotation) > 1.5f)
         {
-            Debug.Log(Quaternion.Angle(transform.rotation, targetRotation));
-            transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, Time.deltaTime * _rotationSpeed);
+            _actorTransform.rotation = 
+                Quaternion.RotateTowards(_actorTransform.rotation, 
+                targetRotation, Time.deltaTime * _rotationSpeed);
             yield return null;
         }
-        OnDestinationReached?.Invoke();
+        _onDestinationReached?.Invoke();
     }
 
     private IEnumerator WaitForObjectPlaceRoutine()

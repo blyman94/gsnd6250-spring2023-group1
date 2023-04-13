@@ -401,6 +401,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 70591ca101d5cf54193900daf4262519, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _actorTransform: {fileID: 325418067}
   _actorNavMeshAgent: {fileID: 325418065}
   _actorAnimator: {fileID: 4547238917886193972}
   _doorToOpen: {fileID: 1093789683}
@@ -415,7 +416,10 @@ MonoBehaviour:
   - {fileID: 675530177}
   - {fileID: 320209295}
   _lookAtWhenDone: {fileID: 2007082939}
-  _rotationSpeed: 4
+  _rotationSpeed: 120
+  _onDestinationReached:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!4 &325418067
 Transform:
   m_ObjectHideFlags: 0
@@ -757,6 +761,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 70591ca101d5cf54193900daf4262519, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _actorTransform: {fileID: 628938361}
   _actorNavMeshAgent: {fileID: 628938362}
   _actorAnimator: {fileID: 5866666021122850757}
   _doorToOpen: {fileID: 1093789683}
@@ -771,7 +776,10 @@ MonoBehaviour:
   - {fileID: 1694458763}
   - {fileID: 1735795585}
   _lookAtWhenDone: {fileID: 2007082939}
-  _rotationSpeed: 4
+  _rotationSpeed: 120
+  _onDestinationReached:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &675530176
 GameObject:
   m_ObjectHideFlags: 0

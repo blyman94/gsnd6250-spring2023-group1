@@ -6,6 +6,7 @@ using UnityEngine.AI;
 public class WalkAndSitSequence : MonoBehaviour
 {
     [Header("Component References")]
+    [SerializeField] private Transform _actorTransform;
     [SerializeField] private NavMeshAgent _actorNavMeshAgent;
     [SerializeField] private Animator _actorAnimator;
 
@@ -56,13 +57,14 @@ public class WalkAndSitSequence : MonoBehaviour
     private IEnumerator RotateTowardsTarget()
     {
         Vector3 direction =
-            (_lookAtBeforeSit.position - transform.position).normalized;
+            (_lookAtBeforeSit.position - _actorTransform.position).normalized;
         Quaternion targetRotation = Quaternion.LookRotation(direction);
 
-        while (Quaternion.Angle(transform.rotation, targetRotation) > 1.5f)
+        while (Quaternion.Angle(_actorTransform.rotation, targetRotation) > 1.5f)
         {
-            Debug.Log(Quaternion.Angle(transform.rotation, targetRotation));
-            transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, Time.deltaTime * _rotationSpeed);
+            _actorTransform.rotation = 
+                Quaternion.RotateTowards(_actorTransform.rotation, 
+                targetRotation, Time.deltaTime * _rotationSpeed);
             yield return null;
         }
         _actorAnimator.SetTrigger("SitDown");
