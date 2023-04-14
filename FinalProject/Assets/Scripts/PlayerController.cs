@@ -5,6 +5,7 @@ public class PlayerController : MonoBehaviour
 {
     [SerializeField] private Mover _playerMover;
     [SerializeField] private Interactor _playerInteractor;
+    [SerializeField] private HandDrum _handDrum;
 
     private void Start()
     {
@@ -17,6 +18,10 @@ public class PlayerController : MonoBehaviour
         if (context.started)
         {
             _playerInteractor.Activate();
+            if (_handDrum.gameObject.activeInHierarchy)
+            {
+                _handDrum.Strike();
+            }
         }
     }
 

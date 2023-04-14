@@ -8,7 +8,6 @@ public class MemoryRoomFadeSequence : MonoBehaviour
     [SerializeField] private MemoryRoom _memoryRoom;
 
     [Header("Fade Parameters")]
-    [SerializeField] private float[] _priorityFadeDurations;
     [SerializeField] private float _startDelay = 0.0f;
     [SerializeField] private float _timeBetweenObjectFades = 3.0f;
 
@@ -34,6 +33,7 @@ public class MemoryRoomFadeSequence : MonoBehaviour
             {
                 // TODO: End the game here.
                 CancelInvoke();
+                _memoryRoom.FadeOutAll();
                 Debug.Log("Game Over!");
             }
             else
