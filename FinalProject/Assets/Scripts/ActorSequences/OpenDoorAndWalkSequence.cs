@@ -20,6 +20,7 @@ public class OpenDoorAndWalkSequence : MonoBehaviour
     [SerializeField] private Transform _objectSlot;
     [SerializeField] private Transform _placedObjectSlot;
     [SerializeField] private GameObject _objectPrefab;
+    [SerializeField] private float _animationTimeout = 1.0f;
 
     [Header("Navigation Parameters")]
     [SerializeField] private Transform[] _path;
@@ -114,12 +115,15 @@ public class OpenDoorAndWalkSequence : MonoBehaviour
         Vector3 direction =
             (_lookAtWhenDone.position - _actorTransform.position).normalized;
         Quaternion targetRotation = Quaternion.LookRotation(direction);
+        float elapsedTime = 0.0f;
 
-        while (Quaternion.Angle(_actorTransform.rotation, targetRotation) > 1.5f)
+        while (Quaternion.Angle(_actorTransform.rotation, targetRotation) > 1.5f
+            && elapsedTime < _animationTimeout)
         {
             _actorTransform.rotation = 
                 Quaternion.RotateTowards(_actorTransform.rotation, 
                 targetRotation, Time.deltaTime * _rotationSpeed);
+            elapsedTime += Time.deltaTime;
             yield return null;
         }
         _onDestinationReached?.Invoke();
