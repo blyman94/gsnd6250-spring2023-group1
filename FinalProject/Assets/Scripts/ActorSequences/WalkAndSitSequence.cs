@@ -16,6 +16,7 @@ public class WalkAndSitSequence : MonoBehaviour
     [Header("Rotation Parameters")]
     [SerializeField] private Transform _lookAtBeforeSit;
     [SerializeField] private float _rotationSpeed = 120.0f;
+    [SerializeField] private float _rotationTimeout = 2.0f;
 
     private bool _actorIsMoving;
     private int _currentPathNodeIndex;
@@ -59,14 +60,18 @@ public class WalkAndSitSequence : MonoBehaviour
         Vector3 direction =
             (_lookAtBeforeSit.position - _actorTransform.position).normalized;
         Quaternion targetRotation = Quaternion.LookRotation(direction);
+        float elapsedTime = 0.0f;
 
-        while (Quaternion.Angle(_actorTransform.rotation, targetRotation) > 1.5f)
+        while (Quaternion.Angle(_actorTransform.rotation, targetRotation) > 1.5f
+            && elapsedTime < _rotationTimeout)
         {
             _actorTransform.rotation = 
                 Quaternion.RotateTowards(_actorTransform.rotation, 
                 targetRotation, Time.deltaTime * _rotationSpeed);
+            elapsedTime += Time.deltaTime;
             yield return null;
         }
+        
         _actorAnimator.SetTrigger("SitDown");
     }
 }

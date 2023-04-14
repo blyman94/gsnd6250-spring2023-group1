@@ -15,12 +15,12 @@ public class OpenDoorAndWalkSequence : MonoBehaviour
 
     [Header("Animation Parameters")]
     [SerializeField] private bool _isHoldingObject;
-    [SerializeField] private float _waitForObjectPlaceDuration;
+    [SerializeField] private float _waitForObjectPlaceDuration = 2.25f;
+    [SerializeField] private float _waitForIdleTransitionDuration = 2.25f;
     [SerializeField] private float _placementAngle = 30.0f;
     [SerializeField] private Transform _objectSlot;
     [SerializeField] private Transform _placedObjectSlot;
     [SerializeField] private GameObject _objectPrefab;
-    [SerializeField] private float _animationTimeout = 1.0f;
 
     [Header("Navigation Parameters")]
     [SerializeField] private Transform[] _path;
@@ -28,6 +28,7 @@ public class OpenDoorAndWalkSequence : MonoBehaviour
     [Header("Rotation Parameters")]
     [SerializeField] private Transform _lookAtWhenDone;
     [SerializeField] private float _rotationSpeed = 2.0f;
+    [SerializeField] private float _rotationTimeout = 2.0f;
 
     [Header("Events")]
     [SerializeField] private UnityEvent _onDestinationReached;
@@ -118,15 +119,18 @@ public class OpenDoorAndWalkSequence : MonoBehaviour
         float elapsedTime = 0.0f;
 
         while (Quaternion.Angle(_actorTransform.rotation, targetRotation) > 1.5f
-            && elapsedTime < _animationTimeout)
+            && elapsedTime < _rotationTimeout)
         {
-            _actorTransform.rotation = 
-                Quaternion.RotateTowards(_actorTransform.rotation, 
+            _actorTransform.rotation =
+                Quaternion.RotateTowards(_actorTransform.rotation,
                 targetRotation, Time.deltaTime * _rotationSpeed);
             elapsedTime += Time.deltaTime;
             yield return null;
         }
-        _onDestinationReached?.Invoke();
+        if (!_isHoldingObject)
+        {
+            _onDestinationReached?.Invoke();
+        }
     }
 
     private IEnumerator WaitForObjectPlaceRoutine()
@@ -134,8 +138,10 @@ public class OpenDoorAndWalkSequence : MonoBehaviour
         yield return new WaitForSeconds(_waitForObjectPlaceDuration);
         _actorAnimator.SetTrigger("StartIdle");
         _carriedObject.transform.parent = _placedObjectSlot;
-        _carriedObject.transform.localRotation = 
+        _carriedObject.transform.localRotation =
             Quaternion.Euler(0.0f, _placementAngle, 0.0f);
         _carriedObject.transform.localPosition = Vector3.zero;
+        yield return new WaitForSeconds(_waitForIdleTransitionDuration);
+        _onDestinationReached?.Invoke();
     }
 }

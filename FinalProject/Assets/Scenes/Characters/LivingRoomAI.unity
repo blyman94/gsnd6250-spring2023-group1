@@ -858,6 +858,71 @@ Transform:
   m_Father: {fileID: 8167575197971841827}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: -89.979, z: 0}
+--- !u!1 &904265605
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 904265606}
+  - component: {fileID: 904265607}
+  m_Layer: 0
+  m_Name: TalkSequence
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &904265606
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 904265605}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 998972676}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &904265607
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 904265605}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 635e50b25c7f96947bb9d73abc0759a8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _actorAnimator: {fileID: 3506697035243836942}
+  _startWithHug: 0
+  _hugDuration: 9
+  _talkOneHandDuration: 5
+  _talkTwoHandsDuration: 5
+  _talkTypeSequence: 0000000001000000
+  _onFinishedTalking:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1065812040}
+        m_TargetAssemblyTypeName: HoldOutObjectSequence, Assembly-CSharp
+        m_MethodName: Begin
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &975435688
 GameObject:
   m_ObjectHideFlags: 0
@@ -1042,6 +1107,7 @@ Transform:
   - {fileID: 1007269886}
   - {fileID: 1065812041}
   - {fileID: 1972129518}
+  - {fileID: 904265606}
   m_Father: {fileID: 1901544431}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1103,11 +1169,12 @@ MonoBehaviour:
   - {fileID: 675530177}
   _lookAtWhenDone: {fileID: 1087657700}
   _rotationSpeed: 120
+  _rotationTimeout: 2
   _onDestinationReached:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1065812040}
-        m_TargetAssemblyTypeName: HoldOutObjectSequence, Assembly-CSharp
+      - m_Target: {fileID: 904265607}
+        m_TargetAssemblyTypeName: TalkSequence, Assembly-CSharp
         m_MethodName: Begin
         m_Mode: 1
         m_Arguments:
@@ -2933,6 +3000,7 @@ MonoBehaviour:
   - {fileID: 320209295}
   _lookAtBeforeSit: {fileID: 62353041}
   _rotationSpeed: 120
+  _rotationTimeout: 2
 --- !u!1001 &1995106955
 PrefabInstance:
   m_ObjectHideFlags: 0

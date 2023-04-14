@@ -370,16 +370,17 @@ MonoBehaviour:
   _doorToOpen: {fileID: 1093789683}
   _isHoldingObject: 0
   _waitForObjectPlaceDuration: 3.25
+  _waitForIdleTransitionDuration: 2.25
   _placementAngle: 30
   _objectSlot: {fileID: 0}
   _placedObjectSlot: {fileID: 0}
   _objectPrefab: {fileID: 7882340691003295832, guid: e6cbb1428826d5d4a88df85e78008b42,
     type: 3}
-  _animationTimeout: 1
   _path:
   - {fileID: 1694458763}
   _lookAtWhenDone: {fileID: 2007082939}
   _rotationSpeed: 120
+  _rotationTimeout: 2
   _onDestinationReached:
     m_PersistentCalls:
       m_Calls:
@@ -666,10 +667,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _actorAnimator: {fileID: 5790234559309217956}
+  _startWithHug: 1
   _hugDuration: 9
   _talkOneHandDuration: 5
   _talkTwoHandsDuration: 5
   _talkTypeSequence: 000000000100000000000000
+  _onFinishedTalking:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &547501267
 GameObject:
   m_ObjectHideFlags: 0
@@ -1812,7 +1817,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2007082938}
   m_LocalRotation: {x: -0, y: -1, z: -0, w: 0}
-  m_LocalPosition: {x: -0.267, y: 0, z: 0}
+  m_LocalPosition: {x: -0.075, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
