@@ -52,7 +52,10 @@ public class BedroomPuzzle : MonoBehaviour
             HandDrum handDrum = _handDrumObject.GetComponent<HandDrum>();
             handDrum.Lower();
             _bedroomFadeSequence.CancelInvoke();
-            _bedroom.FadeInAll();
+            for (int i = 0; i < _bedroom.MaxPriority; i++)
+            {
+                _bedroom.FadeInAllInPriority(i);
+            }
             Debug.Log("Puzzle Finished!");
         }
     }

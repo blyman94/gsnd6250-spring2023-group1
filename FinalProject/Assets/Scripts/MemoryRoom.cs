@@ -34,6 +34,15 @@ public class MemoryRoom : MonoBehaviour
         }
     }
 
+    public void FadeInAllInPriority(int priority)
+    {
+        AggregateObjectFades();
+        foreach (ObjectFade objectFade in _objectFadesByPriority[priority])
+        {
+            objectFade.In(_roomFadeDuration);
+        }
+    }
+
     public void FadeOutAll()
     {
         AggregateObjectFades();
