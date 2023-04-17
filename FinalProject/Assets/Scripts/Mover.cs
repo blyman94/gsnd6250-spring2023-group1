@@ -31,7 +31,7 @@ public class Mover : MonoBehaviour
         Vector3 move = new Vector3(MoveInput.x, 0, MoveInput.y);
         move = _cameraTransform.forward * move.z + _cameraTransform.right * move.x;
         move.y = 0.0f;
-        _controller.Move(move * Time.deltaTime * _playerSpeed);
+        _controller.Move(move.normalized * Time.deltaTime * _playerSpeed);
 
         _playerVelocity.y += _gravityValue * Time.deltaTime;
         _controller.Move(_playerVelocity * Time.deltaTime);
