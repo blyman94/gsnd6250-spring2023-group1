@@ -18,10 +18,15 @@ public class Interactor : MonoBehaviour
             if (hitInfo.collider.CompareTag("Interactable"))
             {
                 _interactable = hitInfo.collider.GetComponent<Interactable>();
+                _interactable.StartHover();
             }
         }
         else
         {
+            if (_interactable != null)
+            {
+                _interactable.EndHover();
+            }
             _interactable = null;
         }
     }
