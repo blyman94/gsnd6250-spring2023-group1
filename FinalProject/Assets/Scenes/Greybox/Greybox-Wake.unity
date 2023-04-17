@@ -336,7 +336,7 @@ GameObject:
   - component: {fileID: 52941762}
   - component: {fileID: 52941761}
   m_Layer: 0
-  m_Name: Cube (19)
+  m_Name: Picture
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4957,9 +4957,9 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 339006191}
-  m_LocalRotation: {x: -0, y: -0, z: 0.38268343, w: 0.92387956}
-  m_LocalPosition: {x: 0.3169999, y: 0, z: 0.16700006}
-  m_LocalScale: {x: 0.07117833, y: 0.4349094, z: 0.11922058}
+  m_LocalRotation: {x: -0.0000000074505797, y: 0.000000029802319, z: 0.3826833, w: 0.92387956}
+  m_LocalPosition: {x: 0.31700006, y: 0, z: 0.16699997}
+  m_LocalScale: {x: 0.07117832, y: 0.4349095, z: 0.11922059}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 8739092}
@@ -10992,7 +10992,7 @@ GameObject:
   - component: {fileID: 674221141}
   - component: {fileID: 674221140}
   m_Layer: 0
-  m_Name: Cube (19)
+  m_Name: Picture
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -12139,7 +12139,7 @@ GameObject:
   - component: {fileID: 749972197}
   - component: {fileID: 749972196}
   m_Layer: 0
-  m_Name: Cube (20)
+  m_Name: Picture
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -19898,7 +19898,7 @@ GameObject:
   - component: {fileID: 1271876258}
   - component: {fileID: 1271876257}
   m_Layer: 0
-  m_Name: Cube (10)
+  m_Name: Music Box
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -22698,7 +22698,7 @@ GameObject:
   - component: {fileID: 1385551207}
   - component: {fileID: 1385551206}
   m_Layer: 0
-  m_Name: Cube (20)
+  m_Name: Fedora
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -25174,7 +25174,7 @@ GameObject:
   - component: {fileID: 1503854594}
   - component: {fileID: 1503854593}
   m_Layer: 0
-  m_Name: Cube (19)
+  m_Name: Picture
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -27361,9 +27361,9 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1619899258}
-  m_LocalRotation: {x: 0.044236273, y: 0.10679594, z: 0.38011804, w: 0.91768634}
-  m_LocalPosition: {x: 0.777, y: 0, z: 0.467}
-  m_LocalScale: {x: 0.07117833, y: 0.4349094, z: 0.11922058}
+  m_LocalRotation: {x: 0.04423627, y: 0.106795914, z: 0.380118, w: 0.9176862}
+  m_LocalPosition: {x: 0.7770001, y: 0, z: 0.46700004}
+  m_LocalScale: {x: 0.07117833, y: 0.43490946, z: 0.11922058}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 8739092}
@@ -29400,7 +29400,7 @@ GameObject:
   - component: {fileID: 1678304297}
   - component: {fileID: 1678304296}
   m_Layer: 0
-  m_Name: Cube (19)
+  m_Name: Picture
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
