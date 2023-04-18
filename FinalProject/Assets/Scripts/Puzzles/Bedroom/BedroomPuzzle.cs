@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Blyman94.CommonSolutions;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class BedroomPuzzle : MonoBehaviour
 {
@@ -16,6 +17,9 @@ public class BedroomPuzzle : MonoBehaviour
     [Header("Data")]
     [SerializeField] private BoolVariable[] _hasPieceFlagArray;
     [SerializeField] private IntVariable _drumTapCount;
+
+    [Header("Events")]
+    [SerializeField] private UnityEvent _onPuzzleComplete;
 
     private void Awake()
     {
@@ -47,7 +51,7 @@ public class BedroomPuzzle : MonoBehaviour
 
     private void CheckDrumTaps()
     {
-        if (_drumTapCount.Value == _requiredDrumTaps + 1)
+        if (_drumTapCount.Value == _requiredDrumTaps)
         {
             HandDrum handDrum = _handDrumObject.GetComponent<HandDrum>();
             handDrum.Lower();
@@ -56,6 +60,7 @@ public class BedroomPuzzle : MonoBehaviour
             {
                 _bedroom.FadeInAllInPriority(i);
             }
+            _onPuzzleComplete?.Invoke();
             Debug.Log("Puzzle Finished!");
         }
     }
