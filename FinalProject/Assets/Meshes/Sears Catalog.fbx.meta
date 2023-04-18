@@ -3,7 +3,22 @@ guid: 31b8eaad3fa50bc41ad0c367f41e74b8
 ModelImporter:
   serializedVersion: 21300
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Catalog Cover
+    second: {fileID: 2100000, guid: 3358067988bbc914da9ea2960bedfaf4, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Catalog Edges
+    second: {fileID: 2100000, guid: 3358067988bbc914da9ea2960bedfaf4, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Catalog Paper
+    second: {fileID: 2100000, guid: 3358067988bbc914da9ea2960bedfaf4, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
