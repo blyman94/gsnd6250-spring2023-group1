@@ -11,6 +11,7 @@ public class Tutorial : MonoBehaviour
     [SerializeField] private GameObject _lookRightObject;
     [SerializeField] private GameObject _lookForwardObject;
     [SerializeField] private PlayerController _playerController;
+    [SerializeField] private ApplicationManager _appManager;
 
     [Header("UI Component References")]
     [SerializeField] private CanvasGroupFader _sceneFader;
@@ -54,7 +55,7 @@ public class Tutorial : MonoBehaviour
     {
         yield return _clickPromptFader.FadeRoutine(false, 1.0f);
         yield return _sceneFader.FadeRoutine(true);
-        Debug.Log("Switch to new scene!");
+        _appManager.LoadSceneSingle(1);
     }
 
     private void OnEnable()

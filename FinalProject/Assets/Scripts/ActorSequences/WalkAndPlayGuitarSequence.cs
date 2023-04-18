@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Blyman94.CommonSolutions;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -12,6 +13,7 @@ public class WalkAndPlayGuitarSequence : MonoBehaviour
     [SerializeField] private GameObject _guitarObject;
     [SerializeField] private AudioSource _guitarPlayAudio;
     [SerializeField] private CanvasGroupFader _sceneFader;
+    [SerializeField] private ApplicationManager _appManager;
 
     [Header("Navigation Parameters")]
     [SerializeField] private Transform[] _path;
@@ -65,6 +67,7 @@ public class WalkAndPlayGuitarSequence : MonoBehaviour
     {
         yield return new WaitForSeconds(_playGuitarForDuration);
         yield return _sceneFader.FadeRoutine(true);
+        _appManager.LoadSceneSingle(0);
         Debug.Log("Switch to new scene!");
     }
 

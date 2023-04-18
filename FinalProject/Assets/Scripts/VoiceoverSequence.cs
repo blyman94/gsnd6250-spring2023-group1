@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Blyman94.CommonSolutions;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -10,6 +11,8 @@ public class VoiceoverSequence : MonoBehaviour
     [SerializeField] private float _delayTime;
     [SerializeField] private float[] _timeBetweenClips;
     [SerializeField] private CanvasGroupFader _sceneFader;
+    [SerializeField] private ApplicationManager _appManager;
+    [SerializeField] private int _sceneToLoad = 2;
 
     public void StartSequence()
     {
@@ -28,7 +31,11 @@ public class VoiceoverSequence : MonoBehaviour
         if (_sceneFader != null)
         {
             yield return _sceneFader.FadeRoutine(true);
-            Debug.Log("Switch to new scene!");
+            if (_appManager != null)
+            {
+                _appManager.LoadSceneSingle(_sceneToLoad);
+            }
+            
         }
     }
 }

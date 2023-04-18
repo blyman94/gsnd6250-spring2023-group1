@@ -905,6 +905,7 @@ MonoBehaviour:
   _lookRightObject: {fileID: 1363942434}
   _lookForwardObject: {fileID: 23328497}
   _playerController: {fileID: 920813939}
+  _appManager: {fileID: 11400000, guid: d840b560de72768439b7e3a6fc3db42e, type: 2}
   _sceneFader: {fileID: 1665980304}
   _mousePromptFader: {fileID: 1706069370}
   _movePromptFader: {fileID: 205410115}

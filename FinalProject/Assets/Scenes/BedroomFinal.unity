@@ -27287,6 +27287,8 @@ MonoBehaviour:
   - 2
   - 10
   _sceneFader: {fileID: 2124398273}
+  _appManager: {fileID: 11400000, guid: d840b560de72768439b7e3a6fc3db42e, type: 2}
+  _sceneToLoad: 2
 --- !u!82 &2107606672
 AudioSource:
   m_ObjectHideFlags: 0

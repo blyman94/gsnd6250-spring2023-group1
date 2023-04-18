@@ -814,6 +814,7 @@ MonoBehaviour:
   _guitarObject: {fileID: 2094002362}
   _guitarPlayAudio: {fileID: 1249684381}
   _sceneFader: {fileID: 431179912}
+  _appManager: {fileID: 11400000, guid: d840b560de72768439b7e3a6fc3db42e, type: 2}
   _path:
   - {fileID: 1719797809}
   - {fileID: 863271432}
@@ -5842,6 +5843,8 @@ MonoBehaviour:
   _timeBetweenClips:
   - 5
   _sceneFader: {fileID: 0}
+  _appManager: {fileID: 0}
+  _sceneToLoad: 2
 --- !u!1 &607517561
 GameObject:
   m_ObjectHideFlags: 0
@@ -10033,6 +10036,11 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7427555827263922665, guid: 38f263e2160f5e84289fb3f0c354c484,
+        type: 3}
+      propertyPath: _playerSpeed
+      value: 1.25
+      objectReference: {fileID: 0}
     - target: {fileID: 7427555828032598170, guid: 38f263e2160f5e84289fb3f0c354c484,
         type: 3}
       propertyPath: m_LocalPosition.y
@@ -10047,6 +10055,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Height
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7427555828210660396, guid: 38f263e2160f5e84289fb3f0c354c484,
+        type: 3}
+      propertyPath: m_StepOffset
+      value: 0.001
       objectReference: {fileID: 0}
     - target: {fileID: 7427555828210660397, guid: 38f263e2160f5e84289fb3f0c354c484,
         type: 3}
@@ -14091,6 +14104,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1093268287}
+        m_TargetAssemblyTypeName: MemoryRoomFadeSequence, Assembly-CSharp
+        m_MethodName: StartFadeOutSequence
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!4 &1226566789
 Transform:
   m_ObjectHideFlags: 0
@@ -15197,6 +15222,8 @@ MonoBehaviour:
   - 2
   - 12
   _sceneFader: {fileID: 0}
+  _appManager: {fileID: 0}
+  _sceneToLoad: 2
 --- !u!1 &1348311411
 GameObject:
   m_ObjectHideFlags: 0
