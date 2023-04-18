@@ -4,9 +4,12 @@ using Cinemachine;
 
 public class PlayerController : MonoBehaviour
 {
+    [Header("Component References")]
     public CinemachineInputProvider CinemachineInputProvider;
     [SerializeField] private Mover _playerMover;
     [SerializeField] private Interactor _playerInteractor;
+
+    [Header("Optional References")]
     [SerializeField] private HandDrum _handDrum;
     [SerializeField] private Animator _letterAndOpenerAnimator;
     [SerializeField] private Animator _candleLighterAnimator;
@@ -23,15 +26,15 @@ public class PlayerController : MonoBehaviour
     {
         if (context.started)
         {
-            if (_handDrum.gameObject.activeInHierarchy)
+            if (_handDrum != null && _handDrum.gameObject.activeInHierarchy)
             {
                 _handDrum.Strike();
             }
-            if (_letterAndOpenerAnimator.gameObject.activeInHierarchy)
+            if (_letterAndOpenerAnimator != null && _letterAndOpenerAnimator.gameObject.activeInHierarchy)
             {
                 _letterAndOpenerAnimator.SetTrigger("Open");
             }
-            if (_candleLighterAnimator.gameObject.activeInHierarchy)
+            if (_candleLighterAnimator != null && _candleLighterAnimator.gameObject.activeInHierarchy)
             {
                 _candleLighterAnimator.SetTrigger("Light");
             }

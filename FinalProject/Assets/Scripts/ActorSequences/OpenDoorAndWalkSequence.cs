@@ -13,6 +13,13 @@ public class OpenDoorAndWalkSequence : MonoBehaviour
     [SerializeField] private Animator _actorAnimator;
     [SerializeField] private Door _doorToOpen;
 
+    [Header("Audio")]
+    [SerializeField] private AudioSource _audioSource;
+    [SerializeField] private AudioClip _doorKnockClip;
+
+    [Header("Timing Parameters")]
+    [SerializeField] private float _waitForKnockTime;
+
     [Header("Animation Parameters")]
     [SerializeField] private bool _isHoldingObject;
     [SerializeField] private float _waitForObjectPlaceDuration = 2.25f;
@@ -46,11 +53,6 @@ public class OpenDoorAndWalkSequence : MonoBehaviour
         _doorToOpen.AnimationComplete -= WalkThroughDoor;
     }
 
-    private void Start()
-    {
-        Begin();
-    }
-
     void Update()
     {
         if (HasReachedDestination())
@@ -81,11 +83,23 @@ public class OpenDoorAndWalkSequence : MonoBehaviour
 
     public void Begin()
     {
+        StartCoroutine(BeginRoutine());
+    }
+
+    private IEnumerator BeginRoutine()
+    {
         if (_isHoldingObject)
         {
             _actorAnimator.SetTrigger("CarryObject");
             _carriedObject = Instantiate(_objectPrefab, _objectSlot);
         }
+
+        if (_audioSource != null)
+        {
+            _audioSource.PlayOneShot(_doorKnockClip);
+        }
+        
+        yield return new WaitForSeconds(_waitForKnockTime);
         _doorToOpen.Open();
     }
 

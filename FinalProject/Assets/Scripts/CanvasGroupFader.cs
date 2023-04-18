@@ -13,12 +13,22 @@ public class CanvasGroupFader : MonoBehaviour
         _canvasGroup = GetComponent<CanvasGroup>();
     }
 
-    public IEnumerator Fade(bool fadeIn)
+    public void Fade(bool fadeIn)
     {
-        yield return Fade(fadeIn, _defaultFadeTime);
+        StartCoroutine(FadeRoutine(fadeIn));
     }
 
-    public IEnumerator Fade(bool fadeIn, float fadeDuration)
+    public void Fade(bool fadeIn, float fadeDuration)
+    {
+        StartCoroutine(FadeRoutine(fadeIn, fadeDuration));
+    }
+
+    public IEnumerator FadeRoutine(bool fadeIn)
+    {
+        yield return FadeRoutine(fadeIn, _defaultFadeTime);
+    }
+
+    public IEnumerator FadeRoutine(bool fadeIn, float fadeDuration)
     {
         float elapsedTime = fadeIn ?
             (_canvasGroup.alpha * fadeDuration) :

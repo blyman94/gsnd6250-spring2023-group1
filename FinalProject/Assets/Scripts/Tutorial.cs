@@ -40,7 +40,7 @@ public class Tutorial : MonoBehaviour
     {
         _playerController.CanMove = false;
         _playerController.CinemachineInputProvider.enabled = false;
-        yield return _sceneFader.Fade(false);
+        yield return _sceneFader.FadeRoutine(false);
         yield return FadeInAndShowLeftPromptRoutine();
     }
 
@@ -52,8 +52,8 @@ public class Tutorial : MonoBehaviour
 
     public IEnumerator TutorialFinishedRoutine()
     {
-        yield return _clickPromptFader.Fade(false, 1.0f);
-        yield return _sceneFader.Fade(true);
+        yield return _clickPromptFader.FadeRoutine(false, 1.0f);
+        yield return _sceneFader.FadeRoutine(true);
         Debug.Log("Switch to new scene!");
     }
 
@@ -115,38 +115,38 @@ public class Tutorial : MonoBehaviour
         _playerController.CinemachineInputProvider.enabled = true;
         _promptText.text = "Look Left";
         _uiMouseAnimator.SetTrigger("MouseLeft");
-        yield return _mousePromptFader.Fade(true, 1.0f);
+        yield return _mousePromptFader.FadeRoutine(true, 1.0f);
     }
 
     private IEnumerator FadeOutAndSwitchPromptToRightRoutine()
     {
-        yield return _mousePromptFader.Fade(false, 1.0f);
+        yield return _mousePromptFader.FadeRoutine(false, 1.0f);
         _promptText.text = "Look Right";
         _uiMouseAnimator.SetTrigger("MouseRight");
-        yield return _mousePromptFader.Fade(true, 1.0f);
+        yield return _mousePromptFader.FadeRoutine(true, 1.0f);
     }
 
     private IEnumerator FadeOutAndSwitchPromptToForwardRoutine()
     {
-        yield return _mousePromptFader.Fade(false, 1.0f);
+        yield return _mousePromptFader.FadeRoutine(false, 1.0f);
         _promptText.text = "Look Forward";
         _uiMouseAnimator.SetTrigger("MouseLeft");
-        yield return _mousePromptFader.Fade(true, 1.0f);
+        yield return _mousePromptFader.FadeRoutine(true, 1.0f);
     }
 
     private IEnumerator FadeOutAndSwitchPromptToWalkRoutine()
     {
-        yield return _mousePromptFader.Fade(false, 1.0f);
+        yield return _mousePromptFader.FadeRoutine(false, 1.0f);
         yield return new WaitForSeconds(0.5f);
         _playerController.CanMove = true;
-        yield return _movePromptFader.Fade(true, 1.0f);
+        yield return _movePromptFader.FadeRoutine(true, 1.0f);
     }
 
     private IEnumerator FadeOutAndSwitchPromptToClickRoutine()
     {
-        yield return _movePromptFader.Fade(false, 1.0f);
+        yield return _movePromptFader.FadeRoutine(false, 1.0f);
         yield return new WaitForSeconds(0.5f);
-        yield return _clickPromptFader.Fade(true, 1.0f);
+        yield return _clickPromptFader.FadeRoutine(true, 1.0f);
     }
 
 }

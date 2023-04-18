@@ -22,6 +22,18 @@ public class ObjectFade : MonoBehaviour
     [SerializeField] private float _defaultFadeDuration = 5.0f;
     [SerializeField] private bool _retainShadows = false;
 
+    private void Awake()
+    {
+        if (_objectRenderer == null)
+        {
+            _objectRenderer = GetComponent<Renderer>();
+        }
+        if (_objectCollider == null)
+        {
+            _objectCollider = GetComponent<Collider>();
+        }
+    }
+
     public void Hide()
     {
         StopAllCoroutines();
