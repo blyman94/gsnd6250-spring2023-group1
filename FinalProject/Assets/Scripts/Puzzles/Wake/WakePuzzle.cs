@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Blyman94.CommonSolutions;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class WakePuzzle : MonoBehaviour
 {
@@ -13,6 +14,9 @@ public class WakePuzzle : MonoBehaviour
     [Header("Data")]
     [SerializeField] private BoolVariable[] _hasPieceFlagArray;
     [SerializeField] private BoolVariable[] _placedPieceFlagArray;
+
+    [Header("Events")]
+    [SerializeField] private UnityEvent _onPuzzleFinished;
 
     private void Awake()
     {
@@ -57,6 +61,7 @@ public class WakePuzzle : MonoBehaviour
         {
             _wakeRoom.FadeInAllInPriority(i);
         }
+        _onPuzzleFinished?.Invoke();
         Debug.Log("Puzzle Finished!");
     }
 
