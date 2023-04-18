@@ -25,7 +25,10 @@ public class VoiceoverSequence : MonoBehaviour
             yield return new WaitForSeconds(_timeBetweenClips[i]);
         }
 
-        yield return _sceneFader.FadeRoutine(true);
-        Debug.Log("Switch to new scene!");
+        if (_sceneFader != null)
+        {
+            yield return _sceneFader.FadeRoutine(true);
+            Debug.Log("Switch to new scene!");
+        }
     }
 }
