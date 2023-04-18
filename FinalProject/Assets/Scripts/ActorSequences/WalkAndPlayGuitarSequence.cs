@@ -25,6 +25,7 @@ public class WalkAndPlayGuitarSequence : MonoBehaviour
 
     [Header("Sequence Parameters")]
     [SerializeField] private float _playGuitarForDuration = 5.0f;
+    [SerializeField] private int _sceneToLoad = 2;
 
     private bool _actorIsMoving;
     private int _currentPathNodeIndex;
@@ -67,7 +68,7 @@ public class WalkAndPlayGuitarSequence : MonoBehaviour
     {
         yield return new WaitForSeconds(_playGuitarForDuration);
         yield return _sceneFader.FadeRoutine(true);
-        _appManager.LoadSceneSingle(0);
+        _appManager.LoadSceneSingle(_sceneToLoad);
         Debug.Log("Switch to new scene!");
     }
 

@@ -822,6 +822,7 @@ MonoBehaviour:
   _rotationSpeed: 120
   _rotationTimeout: 2
   _playGuitarForDuration: 10
+  _sceneToLoad: 3
 --- !u!4 &76217673
 Transform:
   m_ObjectHideFlags: 0

@@ -17,4 +17,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/LivingRoomFinal.unity
     guid: edac671a6354ab445aa4548700b28bca
+  - enabled: 1
+    path: Assets/Scenes/WakeFinal.unity
+    guid: 9fdf68f13240e784ba24d5141ecffd5e
   m_configObjects: {}
