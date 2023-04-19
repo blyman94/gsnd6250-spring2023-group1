@@ -3,7 +3,12 @@ guid: a56eb4c6627124f4ca6e8e9c4d3cbd06
 ModelImporter:
   serializedVersion: 21300
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: berklee logo
+    second: {fileID: 2100000, guid: c53fe0d7becf6eb48bce1a3613ecb9eb, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
