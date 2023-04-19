@@ -28,7 +28,16 @@
                     "type": "PassThrough",
                     "id": "82125348-edc2-45b7-9335-65867d66788a",
                     "expectedControlType": "Vector2",
-                    "processors": "ScaleVector2(x=0.25,y=0.25)",
+                    "processors": "ScaleVector2(x=0.01,y=0.01)",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Quit",
+                    "type": "Button",
+                    "id": "f6a592fa-6020-4351-9254-1a813ed17b06",
+                    "expectedControlType": "Button",
+                    "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
                 }
@@ -251,6 +260,17 @@
                     "processors": "",
                     "groups": "",
                     "action": "Look",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "e138ef5f-d36d-4f4e-a9e9-6c28c4bb1bda",
+                    "path": "<Keyboard>/escape",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Quit",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

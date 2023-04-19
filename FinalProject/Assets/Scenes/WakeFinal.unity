@@ -39959,6 +39959,22 @@ MonoBehaviour:
       m_Calls: []
     m_ActionId: 82125348-edc2-45b7-9335-65867d66788a
     m_ActionName: Gameplay/Look[/Mouse/delta]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 11400000, guid: d840b560de72768439b7e3a6fc3db42e, type: 2}
+        m_TargetAssemblyTypeName: Blyman94.CommonSolutions.ApplicationManager, Blyman94.CommonSolutions
+        m_MethodName: Quit
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: f6a592fa-6020-4351-9254-1a813ed17b06
+    m_ActionName: Gameplay/Quit[/Keyboard/escape]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Gameplay
