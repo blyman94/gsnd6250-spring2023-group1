@@ -16,6 +16,8 @@ public class TheBeginningSequence : MonoBehaviour
 
     private IEnumerator Sequence()
     {
+        _sceneFader.GetComponent<CanvasGroup>().blocksRaycasts = true;
+        _sceneFader.GetComponent<CanvasGroup>().interactable = true;
         yield return _sceneFader.FadeRoutine(true);
         _appManager.LoadSceneSingle(_sceneToLoad);
     }
