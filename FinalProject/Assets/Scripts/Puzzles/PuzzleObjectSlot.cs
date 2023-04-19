@@ -7,7 +7,6 @@ public class PuzzleObjectSlot : MonoBehaviour
 {
     [Header("Component References")]
     [SerializeField] private GameObject _displayObject;
-    [SerializeField] private Transform _displayObjectSlot;
     
     [Header("Data")]
     [SerializeField] private BoolVariable _hasPieceFlag;
@@ -17,7 +16,7 @@ public class PuzzleObjectSlot : MonoBehaviour
     {
         if (_hasPieceFlag.Value)
         {
-            Instantiate(_displayObject, _displayObjectSlot);
+            _displayObject.SetActive(true);
             _placedPieceFlag.Value = true;
         }
     }
