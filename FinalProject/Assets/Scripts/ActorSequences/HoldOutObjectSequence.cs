@@ -7,7 +7,6 @@ public class HoldOutObjectSequence : MonoBehaviour
     [Header("Component References")]
     [SerializeField] private Animator _actorAnimator;
     [SerializeField] private GameObject _objectToHold;
-    [SerializeField] private Transform _objectSlot;
 
     [Header("Animation Parameters")]
     [SerializeField] private float _lowerHandDuration = 1.0f;
@@ -17,7 +16,7 @@ public class HoldOutObjectSequence : MonoBehaviour
 
     public void Begin()
     {
-        Instantiate(_objectToHold, _objectSlot);
+        _objectToHold.SetActive(true);
         _actorAnimator.SetTrigger("ExtendHand");
     }
 
