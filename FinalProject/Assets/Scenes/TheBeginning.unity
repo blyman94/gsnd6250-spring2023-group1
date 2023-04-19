@@ -1086,10 +1086,10 @@ MonoBehaviour:
   _OnStart:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1584427470}
-        m_TargetAssemblyTypeName: CanvasGroupFader, Assembly-CSharp
-        m_MethodName: Fade
-        m_Mode: 6
+      - m_Target: {fileID: 1717592128}
+        m_TargetAssemblyTypeName: TheBeginningSequence, Assembly-CSharp
+        m_MethodName: StartInSequence
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine

@@ -67,12 +67,12 @@ public class MemoryRoomFadeSequence : MonoBehaviour
     private IEnumerator ReloadFirstSceneRoutine()
     {
         yield return _sceneFader.FadeRoutine(true);
-        _appManager.LoadSceneSingle(1);
+        _appManager.LoadSceneSingle(2);
     }
 
     private IEnumerator LoadEndSceneRoutine()
     {
         yield return _sceneFader.FadeRoutine(true);
-        _appManager.LoadSceneSingle(4);
+        _appManager.LoadSceneSingle(5);
     }
 }

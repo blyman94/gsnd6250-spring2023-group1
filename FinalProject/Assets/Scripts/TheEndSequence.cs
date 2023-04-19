@@ -22,8 +22,11 @@ public class TheEndSequence : MonoBehaviour
         yield return _sceneFader.FadeRoutine(true);
         _text.text = "The End";
         _restartButton.SetActive(true);
+        _sceneFader.GetComponent<CanvasGroup>().blocksRaycasts = true;
         yield return new WaitForSeconds(_timeBeforeEnd);
         yield return _sceneFader.FadeRoutine(false);
+        _sceneFader.GetComponent<CanvasGroup>().blocksRaycasts = false;
+
 
     }
 }

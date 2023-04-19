@@ -11,14 +11,28 @@ public class TheBeginningSequence : MonoBehaviour
 
     public void StartSequence()
     {
-        StartCoroutine(Sequence());
+        StartCoroutine(FadeOutSequence());
     }
 
-    private IEnumerator Sequence()
+    public void StartInSequence()
+    {
+        StartCoroutine(FadeInSequence());
+    }
+
+    private IEnumerator FadeOutSequence()
     {
         _sceneFader.GetComponent<CanvasGroup>().blocksRaycasts = true;
         _sceneFader.GetComponent<CanvasGroup>().interactable = true;
         yield return _sceneFader.FadeRoutine(true);
         _appManager.LoadSceneSingle(_sceneToLoad);
+    }
+
+    private IEnumerator FadeInSequence()
+    {
+        _sceneFader.GetComponent<CanvasGroup>().blocksRaycasts = true;
+        _sceneFader.GetComponent<CanvasGroup>().interactable = true;
+        yield return _sceneFader.FadeRoutine(false);
+        _sceneFader.GetComponent<CanvasGroup>().blocksRaycasts = false;
+        _sceneFader.GetComponent<CanvasGroup>().interactable = false;
     }
 }
