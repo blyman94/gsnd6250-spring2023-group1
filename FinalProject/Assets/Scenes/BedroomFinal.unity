@@ -25417,7 +25417,7 @@ MonoBehaviour:
   - 10
   _sceneFader: {fileID: 2124398273}
   _appManager: {fileID: 11400000, guid: d840b560de72768439b7e3a6fc3db42e, type: 2}
-  _sceneToLoad: 2
+  _sceneToLoad: 3
   _isFirstLoop: {fileID: 0}
   _isFirstTimeFirstLevel: {fileID: 11400000, guid: ced278f8a3512c34e9c175e6f4699e28,
     type: 2}

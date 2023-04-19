@@ -55,7 +55,7 @@ public class Tutorial : MonoBehaviour
     {
         yield return _clickPromptFader.FadeRoutine(false, 1.0f);
         yield return _sceneFader.FadeRoutine(true);
-        _appManager.LoadSceneSingle(1);
+        _appManager.LoadSceneSingle(2);
     }
 
     private void OnEnable()
