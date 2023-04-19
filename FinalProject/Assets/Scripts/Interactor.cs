@@ -1,11 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
+using Blyman94.CommonSolutions;
 using UnityEngine;
 
 public class Interactor : MonoBehaviour
 {
     [SerializeField] private float _interactDistance = 2.0f;
     [SerializeField] private LayerMask _detectLayers;
+    [SerializeField] private StringVariable _currentHoveredObjectName;
 
     private Interactable _interactable;
 
@@ -18,6 +20,7 @@ public class Interactor : MonoBehaviour
             if (hitInfo.collider.CompareTag("Interactable"))
             {
                 _interactable = hitInfo.collider.GetComponent<Interactable>();
+                _currentHoveredObjectName.Value = _interactable.ItemName;
                 _interactable.StartHover();
             }
         }
@@ -25,6 +28,7 @@ public class Interactor : MonoBehaviour
         {
             if (_interactable != null)
             {
+                _currentHoveredObjectName.Value = "";
                 _interactable.EndHover();
             }
             _interactable = null;

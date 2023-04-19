@@ -3,6 +3,7 @@ using UnityEngine.Events;
 
 public class Interactable : MonoBehaviour
 {
+    public string ItemName;
     [SerializeField] private UnityEvent OnInteract;
     [SerializeField] private UnityEvent OnHoverStart;
     [SerializeField] private UnityEvent OnHoverEnd;
