@@ -11,6 +11,9 @@ public class LivingRoomPuzzle : MonoBehaviour
     [SerializeField] private ObjectFade _puzzleObjectLetter;
     [SerializeField] private MemoryRoom _livingRoom;
     [SerializeField] private MemoryRoomFadeSequence _livingRoomFadeSequence;
+    [SerializeField] private VoiceoverSequence _playerCueSequence;
+    [SerializeField] private AudioClip _openLetterFailedClip;
+    [SerializeField] private AudioSource _playerAudioSource;
 
     [Header("Data")]
     [SerializeField] private BoolVariable[] _hasPieceFlagArray;
@@ -19,6 +22,8 @@ public class LivingRoomPuzzle : MonoBehaviour
     [SerializeField] private UnityEvent _onPuzzleFinished;
 
     private bool _canActivateLetter = false;
+
+    private bool canPlayClip = true;
 
     private void Awake()
     {
@@ -64,7 +69,7 @@ public class LivingRoomPuzzle : MonoBehaviour
                 return;
             }
         }
-
+        _playerCueSequence.Stop();
         _canActivateLetter = true;
     }
 
@@ -86,5 +91,20 @@ public class LivingRoomPuzzle : MonoBehaviour
             _puzzleObjectLetter.Hide();
             _letterAndOpener.gameObject.SetActive(true);
         }
+        else
+        {
+            if (canPlayClip)
+            {
+                _playerAudioSource.PlayOneShot(_openLetterFailedClip);
+                canPlayClip = false;
+                StartCoroutine(ClipCooldownRoutine());
+            }
+        }
+    }
+
+    private IEnumerator ClipCooldownRoutine()
+    {
+        yield return new WaitForSeconds(10);
+        canPlayClip = true;
     }
 }

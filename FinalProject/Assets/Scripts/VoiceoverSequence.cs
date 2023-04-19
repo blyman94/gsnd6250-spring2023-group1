@@ -23,6 +23,11 @@ public class VoiceoverSequence : MonoBehaviour
         StartCoroutine(VoiceOverRoutine());
     }
 
+    public void Stop()
+    {
+        StopAllCoroutines();
+    }
+
     private IEnumerator VoiceOverRoutine()
     {
         yield return new WaitForSeconds(_delayTime);
@@ -45,7 +50,7 @@ public class VoiceoverSequence : MonoBehaviour
                 {
                     _isFirstTimeFirstLevel.Value = false;
                 }
-                
+
                 _appManager.LoadSceneSingle(_sceneToLoad);
             }
 
