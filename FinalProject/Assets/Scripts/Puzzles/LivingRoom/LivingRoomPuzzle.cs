@@ -71,7 +71,7 @@ public class LivingRoomPuzzle : MonoBehaviour
     private void FinishPuzzle()
     {
         _livingRoomFadeSequence.CancelInvoke();
-        for (int i = 0; i < _livingRoom.MaxPriority; i++)
+        for (int i = 0; i <= _livingRoom.MaxPriority; i++)
         {
             _livingRoom.FadeInAllInPriority(i);
         }

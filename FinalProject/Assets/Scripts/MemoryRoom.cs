@@ -8,7 +8,7 @@ public class MemoryRoom : MonoBehaviour
     [SerializeField] private int _maxFadeablePriority = 4;
     [SerializeField] private bool _startHidden = false;
     private List<ObjectFade> _allObjectFades;
-    private List<List<ObjectFade>> _objectFadesByPriority;
+    public List<List<ObjectFade>> ObjectFadesByPriority;
 
     public int MinPriority { get; private set; }
     public int MaxPriority { get; private set; }
@@ -25,6 +25,17 @@ public class MemoryRoom : MonoBehaviour
         }
     }
 
+    public int GetFadeObjectCount()
+    {
+        AggregateObjectFades();
+        int fadeObjectCount = 0;
+        for (int i = MinPriority; i <= MaxPriority; i++)
+        {
+            fadeObjectCount += ObjectFadesByPriority[i].Count;
+        }
+        return fadeObjectCount;
+    }
+
     public void FadeInAll()
     {
         AggregateObjectFades();
@@ -37,7 +48,7 @@ public class MemoryRoom : MonoBehaviour
     public void FadeInAllInPriority(int priority)
     {
         AggregateObjectFades();
-        foreach (ObjectFade objectFade in _objectFadesByPriority[priority])
+        foreach (ObjectFade objectFade in ObjectFadesByPriority[priority])
         {
             objectFade.In(_roomFadeDuration);
         }
@@ -56,7 +67,7 @@ public class MemoryRoom : MonoBehaviour
     {
         int priorityFinal = Mathf.Clamp(priority, MinPriority, MaxPriority);
 
-        List<ObjectFade> priorityList = _objectFadesByPriority[priorityFinal];
+        List<ObjectFade> priorityList = ObjectFadesByPriority[priorityFinal];
 
         if (priorityList.Count <= 0)
         {
@@ -68,7 +79,7 @@ public class MemoryRoom : MonoBehaviour
 
         selectedObjectFade.Out();
 
-        _objectFadesByPriority[priorityFinal].Remove(selectedObjectFade);
+        ObjectFadesByPriority[priorityFinal].Remove(selectedObjectFade);
 
         return true;
     }
@@ -77,7 +88,7 @@ public class MemoryRoom : MonoBehaviour
     {
         int priorityFinal = Mathf.Clamp(priority, MinPriority, MaxPriority);
 
-        List<ObjectFade> priorityList = _objectFadesByPriority[priorityFinal];
+        List<ObjectFade> priorityList = ObjectFadesByPriority[priorityFinal];
 
         if (priorityList.Count <= 0)
         {
@@ -89,7 +100,7 @@ public class MemoryRoom : MonoBehaviour
 
         selectedObjectFade.Out(fadeDuration);
 
-        _objectFadesByPriority[priorityFinal].Remove(selectedObjectFade);
+        ObjectFadesByPriority[priorityFinal].Remove(selectedObjectFade);
 
         return true;
     }
@@ -115,7 +126,7 @@ public class MemoryRoom : MonoBehaviour
     private void AggregateObjectFades()
     {
         _allObjectFades = GetComponentsInChildren<ObjectFade>().ToList();
-        _objectFadesByPriority = new List<List<ObjectFade>>();
+        ObjectFadesByPriority = new List<List<ObjectFade>>();
 
         MaxPriority = Mathf.Clamp(_allObjectFades.Max(objectFade =>
             objectFade.FadePriority), 0, _maxFadeablePriority);
@@ -127,7 +138,7 @@ public class MemoryRoom : MonoBehaviour
             List<ObjectFade> priorityList =
                 _allObjectFades.Where(objectFade =>
                 objectFade.FadePriority == i).ToList();
-            _objectFadesByPriority.Add(priorityList);
+            ObjectFadesByPriority.Add(priorityList);
         }
     }
 }

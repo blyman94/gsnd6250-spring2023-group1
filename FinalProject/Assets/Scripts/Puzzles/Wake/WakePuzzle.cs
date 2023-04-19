@@ -57,7 +57,7 @@ public class WakePuzzle : MonoBehaviour
     private void FinishPuzzle()
     {
         _wakeRoomFadeSequence.CancelInvoke();
-        for (int i = 0; i < _wakeRoom.MaxPriority; i++)
+        for (int i = 0; i <= _wakeRoom.MaxPriority; i++)
         {
             _wakeRoom.FadeInAllInPriority(i);
         }

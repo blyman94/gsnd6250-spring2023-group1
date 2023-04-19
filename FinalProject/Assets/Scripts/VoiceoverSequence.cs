@@ -14,6 +14,10 @@ public class VoiceoverSequence : MonoBehaviour
     [SerializeField] private ApplicationManager _appManager;
     [SerializeField] private int _sceneToLoad = 2;
 
+    [Header("Data")]
+    [SerializeField] private BoolVariable _isFirstLoop;
+    [SerializeField] private BoolVariable _isFirstTimeFirstLevel;
+
     public void StartSequence()
     {
         StartCoroutine(VoiceOverRoutine());
@@ -33,9 +37,18 @@ public class VoiceoverSequence : MonoBehaviour
             yield return _sceneFader.FadeRoutine(true);
             if (_appManager != null)
             {
+                if (_isFirstLoop != null)
+                {
+                    _isFirstLoop.Value = false;
+                }
+                if (_isFirstTimeFirstLevel != null)
+                {
+                    _isFirstTimeFirstLevel.Value = false;
+                }
+                
                 _appManager.LoadSceneSingle(_sceneToLoad);
             }
-            
+
         }
     }
 }
