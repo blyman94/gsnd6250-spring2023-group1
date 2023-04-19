@@ -15,7 +15,7 @@ public class ObjectFade : MonoBehaviour
     public int FadePriority = 5;
 
     [Header("Component References")]
-    [SerializeField] private Renderer _objectRenderer;
+    [SerializeField] private Renderer[] _objectRenderers;
     [SerializeField] private Collider _objectCollider;
 
     [Header("Fade Parameters")]
@@ -24,10 +24,6 @@ public class ObjectFade : MonoBehaviour
 
     private void Awake()
     {
-        if (_objectRenderer == null)
-        {
-            _objectRenderer = GetComponent<Renderer>();
-        }
         if (_objectCollider == null)
         {
             _objectCollider = GetComponent<Collider>();
@@ -37,11 +33,14 @@ public class ObjectFade : MonoBehaviour
     public void Hide()
     {
         StopAllCoroutines();
-        foreach (Material material in _objectRenderer.materials)
+        foreach (Renderer objectRenderer in _objectRenderers)
         {
-            SetMaterialTransparent(material);
-            material.color = new Color(material.color.r,
-                material.color.g, material.color.b, 0.0f);
+            foreach (Material material in objectRenderer.materials)
+            {
+                SetMaterialTransparent(material);
+                material.color = new Color(material.color.r,
+                    material.color.g, material.color.b, 0.0f);
+            }
         }
         SetColliderActive(false);
     }
@@ -49,49 +48,64 @@ public class ObjectFade : MonoBehaviour
     public void In()
     {
         StopAllCoroutines();
-        foreach (Material material in _objectRenderer.materials)
+        foreach (Renderer objectRenderer in _objectRenderers)
         {
-            StartCoroutine(FadeMaterialRoutine(material, true,
-                _defaultFadeDuration));
+            foreach (Material material in objectRenderer.materials)
+            {
+                StartCoroutine(FadeMaterialRoutine(material, true,
+                    _defaultFadeDuration));
+            }
         }
     }
 
     public void In(float fadeDuration)
     {
         StopAllCoroutines();
-        foreach (Material material in _objectRenderer.materials)
+        foreach (Renderer objectRenderer in _objectRenderers)
         {
-            StartCoroutine(FadeMaterialRoutine(material, true, fadeDuration));
+            foreach (Material material in objectRenderer.materials)
+            {
+                StartCoroutine(FadeMaterialRoutine(material, true, fadeDuration));
+            }
         }
     }
 
     public void Out()
     {
         StopAllCoroutines();
-        foreach (Material material in _objectRenderer.materials)
+        foreach (Renderer objectRenderer in _objectRenderers)
         {
-            StartCoroutine(FadeMaterialRoutine(material, false,
-                _defaultFadeDuration));
+            foreach (Material material in objectRenderer.materials)
+            {
+                StartCoroutine(FadeMaterialRoutine(material, false,
+                    _defaultFadeDuration));
+            }
         }
     }
 
     public void Out(float fadeDuration)
     {
         StopAllCoroutines();
-        foreach (Material material in _objectRenderer.materials)
+        foreach (Renderer objectRenderer in _objectRenderers)
         {
-            StartCoroutine(FadeMaterialRoutine(material, false, fadeDuration));
+            foreach (Material material in objectRenderer.materials)
+            {
+                StartCoroutine(FadeMaterialRoutine(material, false, fadeDuration));
+            }
         }
     }
 
     public void Show()
     {
         StopAllCoroutines();
-        foreach (Material material in _objectRenderer.materials)
+        foreach (Renderer objectRenderer in _objectRenderers)
         {
-            SetMaterialOpaque(material);
-            material.color = new Color(material.color.r,
-                material.color.g, material.color.b, 1.0f);
+            foreach (Material material in objectRenderer.materials)
+            {
+                SetMaterialOpaque(material);
+                material.color = new Color(material.color.r,
+                    material.color.g, material.color.b, 1.0f);
+            }
         }
         SetColliderActive(true);
     }
