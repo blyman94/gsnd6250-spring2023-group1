@@ -18573,7 +18573,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _actorAnimator: {fileID: 1255596761}
-  _objectToHold: {fileID: 7882340691003295832, guid: 72d4b89ff47e2be4aa8be873d9202da6,
+  _objectToHold: {fileID: 4087841334578282605, guid: 38d8fb1835e6f824e974a77e99bef640,
     type: 3}
   _objectSlot: {fileID: 631385535}
   _lowerHandDuration: 1
