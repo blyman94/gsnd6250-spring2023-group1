@@ -243,6 +243,17 @@
                 },
                 {
                     "name": "",
+                    "id": "415d9c61-17d5-46c8-a9eb-75effd9ce4d1",
+                    "path": "<Keyboard>/e",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Activate",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "639b1fa0-8808-41e9-adb6-72f29cfdc03f",
                     "path": "<Mouse>/delta",
                     "interactions": "",
